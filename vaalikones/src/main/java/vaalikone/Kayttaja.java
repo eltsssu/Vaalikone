@@ -18,7 +18,7 @@ import java.util.logging.Logger;
  * @author Jonne
  */
 public class Kayttaja implements Serializable {
-
+//SOS TOINEN TESTIRIVI :)
     /**
 	 * 
 	 */
