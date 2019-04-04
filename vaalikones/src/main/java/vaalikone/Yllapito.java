@@ -26,8 +26,8 @@ public class Yllapito extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("VAALIKONEEN YLLÄPITO-SIVU! <br>").append(request.getContextPath());
-		response.getWriter().print("<a href='/EhdokkaanLisays'> Lisää uusi ehdokas</a>");
+		response.getWriter().append("VAALIKONEEN YLLï¿½PITO-SIVU! <br>").append(request.getContextPath());
+		response.getWriter().print("<a href='/EhdokkaanLisays'> Lisï¿½ï¿½ uusi ehdokas</a>");
 	}
 
 	/**
