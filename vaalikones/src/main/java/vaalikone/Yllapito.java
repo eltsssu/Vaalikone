@@ -10,13 +10,13 @@ import javax.servlet.http.HttpServletResponse;
  * Servlet implementation class EhdokkaanLisays
  */
 
-public class EhdokkaanLisays extends HttpServlet {
+public class Yllapito extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public EhdokkaanLisays() {
+    public Yllapito() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -26,7 +26,8 @@ public class EhdokkaanLisays extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("TÄÄLLÄ LISÄTÄÄN UUSI EHDOKAS! ").append(request.getContextPath());
+		response.getWriter().append("VAALIKONEEN YLLÄPITO-SIVU! <br>").append(request.getContextPath());
+		response.getWriter().print("<a href='/EhdokkaanLisays'> Lisää uusi ehdokas</a>");
 	}
 
 	/**
