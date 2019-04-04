@@ -1,6 +1,6 @@
 package vaalikone;
 
-import java.io.IOException;
+import java.io.*;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -26,8 +26,11 @@ public class Yllapito extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("VAALIKONEEN YLL�PITO-SIVU! <br>").append(request.getContextPath());
-		response.getWriter().print("<a href='/EhdokkaanLisays'> Lis�� uusi ehdokas</a>");
+		
+		response.setContentType("text/html;charset=UTF-8");
+		PrintWriter out = response.getWriter();
+		out.println("<h2>VAALIKONEEN YLLÄPITO-SIVU!</h2>");
+		out.println("<a href='/EhdokkaanLisaaminen'> Lisää uusi ehdokas</a>");
 	}
 
 	/**
