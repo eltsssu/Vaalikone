@@ -11,11 +11,7 @@
   <servlet>
     <servlet-name>Yllapito</servlet-name>
     <servlet-class>vaalikone.Yllapito</servlet-class>
-  </servlet> 
-    <servlet>
-    <servlet-name>EhdokkaanLisaaminen</servlet-name>
-    <servlet-class>vaalikone.EhdokkaanLisaaminen</servlet-class>
-  </servlet> 
+  </servlet>
   <servlet-mapping>
     <servlet-name>Vaalikone</servlet-name>
     <url-pattern>/Vaalikone</url-pattern>
@@ -24,9 +20,21 @@
     <servlet-name>Yllapito</servlet-name>
     <url-pattern>/Yllapito</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>TallennaEhdokas</servlet-name>
+    <servlet-class>vaalikone.TallennaEhdokas</servlet-class>
+  </servlet>
   <servlet-mapping>
-    <servlet-name>EhdokkaanLisaaminen</servlet-name>
-    <url-pattern>/EhdokkaanLisaaminen</url-pattern>
+    <servlet-name>TallennaEhdokas</servlet-name>
+    <url-pattern>/TallennaEhdokas</url-pattern>
+  </servlet-mapping>
+    <servlet>
+    <servlet-name>HaeEhdokasLista</servlet-name>
+    <servlet-class>vaalikone.HaeEhdokasLista</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>HaeEhdokasLista</servlet-name>
+    <url-pattern>/HaeEhdokasLista</url-pattern>
   </servlet-mapping>
   <session-config>
     <session-timeout>30</session-timeout>

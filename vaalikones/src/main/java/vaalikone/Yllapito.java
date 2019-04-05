@@ -30,7 +30,8 @@ public class Yllapito extends HttpServlet {
 		response.setContentType("text/html;charset=UTF-8");
 		PrintWriter out = response.getWriter();
 		out.println("<h2>VAALIKONEEN YLLÄPITO-SIVU!</h2>");
-		out.println("<a href='/EhdokkaanLisaaminen'> Lisää uusi ehdokas</a>");
+		out.println("<a href='/EhdokkaanLisays.jsp'> Lisää uusi ehdokas</a><br>");
+		out.println("<a href='/HaeEhdokasLista'> Muokkaa ehdokasta</a>");
 	}
 
 	/**
