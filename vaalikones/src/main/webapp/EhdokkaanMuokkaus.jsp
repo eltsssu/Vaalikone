@@ -10,10 +10,14 @@
 <h1>Ehdokkaan Muokkaus</h1>
 <body>
 
+
 	<form action="HaeEhdokas" id="EhdokkaanMuokkaus">
-		<label>Etunimi:</label><input type='text' name='etunimi'
-			value='<%=e.getEtunimi()%>'> <input type="submit"
-			id="submitnappi" value="Päivitä" /><br>
+<%-- 		<label>Etunimi:</label><input type='text' name='etunimi' value='<%=e.getEtunimi()%>'>  --%>
+<%-- 		<label>Sukunimi:</label><input type='text' name='sukunimi' value='<%=e.getSukunimi()%>'>  --%>
+		
+		
+		
+		<input type="submit" id="submitnappi" value="Päivitä" /><br>
 
 
 

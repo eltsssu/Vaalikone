@@ -43,7 +43,7 @@ public class HaeEhdokasLista extends HttpServlet {
 
 		try {
 
-			Query q = em.createQuery("SELECT k FROM Ehdokkaat k");
+			Query q = em.createQuery("SELECT e FROM Ehdokkaat e");
 
 			List kaikkiEhdokkaat = q.getResultList();
 
