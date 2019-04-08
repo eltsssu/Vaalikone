@@ -28,13 +28,21 @@
     <servlet-name>TallennaEhdokas</servlet-name>
     <url-pattern>/TallennaEhdokas</url-pattern>
   </servlet-mapping>
-    <servlet>
+  <servlet>
     <servlet-name>HaeEhdokasLista</servlet-name>
     <servlet-class>vaalikone.HaeEhdokasLista</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>HaeEhdokasLista</servlet-name>
     <url-pattern>/HaeEhdokasLista</url-pattern>
+  </servlet-mapping>
+    <servlet>
+    <servlet-name>HaeEhdokas</servlet-name>
+    <servlet-class>vaalikone.HaeEhdokas</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>HaeEhdokas</servlet-name>
+    <url-pattern>/HaeEhdokas</url-pattern>
   </servlet-mapping>
   <session-config>
     <session-timeout>30</session-timeout>
