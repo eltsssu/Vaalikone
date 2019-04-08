@@ -11,11 +11,12 @@
 <body>
 
 	<%
-		List kaikkiEhdokkaat = (List) (request.getAttribute("ehdokaslista"));
+		List<Ehdokkaat> kaikkiEhdokkaat = (List<Ehdokkaat>) (request.getAttribute("ehdokaslista"));
 
-		for (int i = 1; i < kaikkiEhdokkaat.size(); i++) {
-
-			out.print("<a href='HaeEhdokas?id=" + e.getId() + "'>Hae</a>");
+		for (int i = 0; i < kaikkiEhdokkaat.size(); i++) {
+			
+			Ehdokkaat e=kaikkiEhdokkaat.get(i);
+			out.print("<a href='HaeEhdokas?id=" + e.getEhdokasId() + "'>Hae</a>");
 		}
 	%>
 
