@@ -42,14 +42,19 @@ public class HaeEhdokas extends HttpServlet {
 			emf = Persistence.createEntityManagerFactory("vaalikones");
 			em = emf.createEntityManager();
 			em.getTransaction().begin();
+			
 
 			Query q = em.createQuery("Select e from e WHERE e.ehdokasID=1");
+			
+			System.out.println(q);
+			
 
-			String ehdokas = request.getParameter("q");
+			String ehdokasID = (request.getParameter("id"));
 
 			RequestDispatcher rd = request.getRequestDispatcher("EhdokkaanMuokkaus.jsp");
-			request.setAttribute("ehdokas", q);
+			request.setAttribute("ehdokas", ehdokasID);
 			rd.forward(request, response);
+			
 		}
 
 		catch (Exception e) {
