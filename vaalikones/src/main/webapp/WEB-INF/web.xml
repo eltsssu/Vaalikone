@@ -36,7 +36,7 @@
     <servlet-name>HaeEhdokasLista</servlet-name>
     <url-pattern>/HaeEhdokasLista</url-pattern>
   </servlet-mapping>
-    <servlet>
+  <servlet>
     <servlet-name>HaeEhdokas</servlet-name>
     <servlet-class>vaalikone.HaeEhdokas</servlet-class>
   </servlet>

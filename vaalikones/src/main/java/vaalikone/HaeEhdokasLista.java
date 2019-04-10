@@ -43,6 +43,9 @@ public class HaeEhdokasLista extends HttpServlet {
 
 		try {
 
+			emf = Persistence.createEntityManagerFactory("vaalikones");
+			em = emf.createEntityManager();
+
 			Query q = em.createQuery("SELECT e FROM Ehdokkaat e");
 
 			List kaikkiEhdokkaat = q.getResultList();

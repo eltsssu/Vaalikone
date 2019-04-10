@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import javax.persistence.Query;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -38,15 +39,16 @@ public class HaeEhdokas extends HttpServlet {
 		EntityManager em = null;
 
 		try {
+			emf = Persistence.createEntityManagerFactory("vaalikones");
+			em = emf.createEntityManager();
+			em.getTransaction().begin();
 
-			Query q = em.createQuery("SELECT e.ehdokasId FROM Ehdokkaat e");
+			Query q = em.createQuery("Select e from e WHERE e.ehdokasID=1");
 
-			List kaikkiEhdokkaat = q.getResultList();
-
-			String id = request.getParameter("id");
+			String ehdokas = request.getParameter("q");
 
 			RequestDispatcher rd = request.getRequestDispatcher("EhdokkaanMuokkaus.jsp");
-			request.setAttribute("ehdokas", id);
+			request.setAttribute("ehdokas", q);
 			rd.forward(request, response);
 		}
 
