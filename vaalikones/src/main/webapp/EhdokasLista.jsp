@@ -9,20 +9,19 @@
 </head>
 <h1>Ehdokaslista</h1>
 <body>
-
 	<%
-		List<Ehdokkaat> kaikkiEhdokkaat = (List<Ehdokkaat>) (request.getAttribute("ehdokaslista"));
+		List<Ehdokkaat> kaikkiEhdokkaat = (List<Ehdokkaat>) (request.getAttribute("ehdokasLista"));
 
 		for (int i = 0; i < kaikkiEhdokkaat.size(); i++) {
 			
 			Ehdokkaat e=kaikkiEhdokkaat.get(i);
+			
+			out.print(e.getEhdokasId() + " ");
 			out.print(e.getSukunimi() + " ");
 			out.print(e.getEtunimi() + " ");
 			out.print("<a href='HaeEhdokas?id=" + e.getEhdokasId() + "'>Hae</a><br>");
 		}
 	%>
-
-
 
 </body>
 </html>
