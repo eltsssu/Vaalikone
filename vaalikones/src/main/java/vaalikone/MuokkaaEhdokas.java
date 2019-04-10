@@ -1,11 +1,14 @@
 package vaalikone;
 
+import java.io.PrintWriter;
+import java.util.List;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
 import persist.Ehdokkaat;
 
 import javax.persistence.*;
@@ -28,26 +31,39 @@ public class MuokkaaEhdokas extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		
+//		List<Ehdokkaat> kaikkiEhdokkaat = (List<Ehdokkaat>) (request.getAttribute("ehdokasLista"));
+//		
+//		Ehdokkaat e=null;
+//		try{
+//		e=(Ehdokkaat)(kaikkiEhdokkaat.get(0));
+//		}
+//		
+//		catch(Exception z){
+//			
+//		}
 		
 		String sukunimi = request.getParameter("sukunimi");
 		String etunimi = request.getParameter("etunimi");
 		String puolue = request.getParameter("puolue");
 		String kotipaikkakunta = request.getParameter("kotipaikkakunta");
 		Integer ika = Integer.parseInt(request.getParameter("ika"));
-		String miksi = request.getParameter("miksieduskuntaan");
-		String mita = request.getParameter("mitahaluat");
+		String miksi = request.getParameter("miksiEduskuntaan");
+		String mita = request.getParameter("mitaAsioitaHaluatEdistaa");
 		String ammatti = request.getParameter("ammatti");
 		
-				
-		 	EntityManagerFactory emf=null;
-	        EntityManager em = null;
-	        try {
-	  	      emf=Persistence.createEntityManagerFactory("vaalikones");
-	  	      em = emf.createEntityManager();
-	  	      em.getTransaction().begin();
-	  	    
-	  	    Ehdokkaat eh = new Ehdokkaat();
-	  		eh.setSukunimi(sukunimi);
+		EntityManagerFactory emf = null;
+		EntityManager em = null;
+		
+		try {
+			emf = Persistence.createEntityManagerFactory("vaalikones");
+			em = emf.createEntityManager();
+			em.getTransaction().begin();
+			
+			Ehdokkaat eh = (Ehdokkaat) em.find(Ehdokkaat.class, 1);
+			
+			eh.setSukunimi(sukunimi);
 			eh.setEtunimi(etunimi);
 			eh.setPuolue(puolue);
 			eh.setKotipaikkakunta(kotipaikkakunta);
@@ -55,24 +71,20 @@ public class MuokkaaEhdokas extends HttpServlet {
 			eh.setMiksiEduskuntaan(miksi);
 			eh.setMitaAsioitaHaluatEdistaa(mita);
 			eh.setAmmatti(ammatti);
-	        em.persist(eh);
-	        em.getTransaction().commit();
-	        em.close();
-	        }
-	        catch(Exception e) {
-	          	response.getWriter().println("EMF+EM EI Onnistu");
-	          	
-	          	e.printStackTrace(response.getWriter());
-	          	
-	          	return;
-	        }
+			em.merge(eh);
+			em.getTransaction().commit();
+			em.close();	
 		
+			
+		} catch (Exception z) {
+			response.getWriter().println("EMF+EM EI Onnistu");
 
-	        response.sendRedirect("/EhdokkaanMuokkaus.jsp");
+			z.printStackTrace(response.getWriter());
+			return;
+		}
 		
-		
+		//response.sendRedirect("/EhdokasLista.jsp");
 	}
-
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
