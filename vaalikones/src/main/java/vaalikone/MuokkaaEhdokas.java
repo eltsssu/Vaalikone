@@ -31,19 +31,8 @@ public class MuokkaaEhdokas extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		
-//		List<Ehdokkaat> kaikkiEhdokkaat = (List<Ehdokkaat>) (request.getAttribute("ehdokasLista"));
-//		
-//		Ehdokkaat e=null;
-//		try{
-//		e=(Ehdokkaat)(kaikkiEhdokkaat.get(0));
-//		}
-//		
-//		catch(Exception z){
-//			
-//		}
-		
+		Integer ehdokasId = Integer.parseInt(request.getParameter("id"));
 		String sukunimi = request.getParameter("sukunimi");
 		String etunimi = request.getParameter("etunimi");
 		String puolue = request.getParameter("puolue");
@@ -83,7 +72,7 @@ public class MuokkaaEhdokas extends HttpServlet {
 			return;
 		}
 		
-		//response.sendRedirect("/EhdokasLista.jsp");
+		response.sendRedirect("/Yllapito");
 	}
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)

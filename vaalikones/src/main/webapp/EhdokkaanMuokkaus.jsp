@@ -34,7 +34,8 @@ catch(Exception z){
 <h1>Ehdokkaan Muokkaus</h1>
 <body>
 
-	<form action="MuokkkaaEhdokas" id="EhdokkaanMuokkaus">
+	<form action="MuokkaaEhdokas" id="EhdokkaanMuokkaus">
+		<input type='hidden' name='id' value='<%=e.getEhdokasId()%>'>
 		<label>Etunimi: </label><input type='text' name='etunimi' value='<%=e.getEtunimi()%>'>
 		<label>Sukunimi: </label><input type='text' name='sukunimi' value='<%=e.getSukunimi()%>'>
 		<label>Puolue: </label><input type='text' name='puolue' value='<%=e.getPuolue()%>'>
