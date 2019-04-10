@@ -3,6 +3,28 @@
 <%@page import="java.util.*,vaalikone.Yllapito,persist.*"%>
 <%@page import="persist.Ehdokkaat"%>
 
+
+<%
+List<Ehdokkaat> kaikkiEhdokkaat = (List<Ehdokkaat>) (request.getAttribute("ehdokasLista"));
+
+if (kaikkiEhdokkaat==null) {
+	System.out.println("JSP Ei ehdokkaita");
+}
+else {
+	System.out.println("JSP ON ehdokkaita");
+}
+
+
+
+Ehdokkaat e=null;
+try{
+e=(Ehdokkaat)(kaikkiEhdokkaat.get(0));
+}
+catch(Exception z){
+	out.println("Ehdokkaan poiminta on mukavaa toimintaa");
+}
+%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,24 +33,19 @@
 </head>
 <h1>Ehdokkaan Muokkaus</h1>
 <body>
-	
 
-	<form action="HaeEhdokas" id="EhdokkaanMuokkaus">
-		<label>Sukunimi </label><input type='text' name='sukunimi' value=''><br>
-		<label>Etunimi </label><input type='text' name='etunimi' value=''><br>
-		<label>Puolue </label><input type='text' name='puolue' value=''><br>
-		<label>Kotipaikkakunta </label><input type='text' name='kotipaikkakunta' value=''><br>
-		<label>Ikä </label><input type='text' name='ika' value=''><br>
-		<label>Miksi eduskuntaan? </label><input type='text' name='miksiEduskuntaan' value=''><br>
-		<label>Mitä asioita haluat edistää? </label><input type='text' name='mitaAsioitaHaluatEdistaa' value=''><br>
-		<label>Ammatti </label><input type='text' name='ammatti' value=''><br>
-			
-		<input type="submit" id="submitnappi" value="Päivitä" />
+		<form action="" id="EhdokkaanMuokkaus">
+		<label>Etunimi: </label><input type='text' name='etunimi' value='<%=e.getEtunimi()%>'>
+		<label>Sukunimi: </label><input type='text' name='sukunimi' value='<%=e.getSukunimi()%>'>
+		<label>Puolue: </label><input type='text' name='puolue' value='<%=e.getPuolue()%>'>
+		<label>Kotipaikkakunta: </label><input type='text' name='kotipaikkakunta' value='<%=e.getKotipaikkakunta()%>'>
+		<label>Ikï¿½: </label><input type='text' name='ika' value='<%=e.getIka()%>'>
+		<label>Miksi eduskuntaan: </label><input type='text' name='miksiEduskuntaan' value='<%=e.getMiksiEduskuntaan()%>'>
+		<label>Mitï¿½ asioita haluat edistï¿½ï¿½: </label><input type='text' name='mitaAsioitaHaluatEdistaa' value='<%=e.getMitaAsioitaHaluatEdistaa()%>'>
+		<label>Ammatti: </label><input type='text' name='ammatti' value='<%=e.getAmmatti()%>'>
+				
+		<input type="submit" id="submitnappi" value="Pï¿½ivitï¿½" /><br>
 
-
-
-
-	</form>
 
 </body>
 </html>
