@@ -19,6 +19,7 @@
 			out.print(e.getSukunimi() + " ");
 			out.print(e.getEtunimi() + " ");
 			out.print("<a href='HaeEhdokas?id=" + e.getEhdokasId() + "'>Hae</a><br>");
+
 		}
 	%>
 

@@ -32,7 +32,7 @@ public class TallennaEhdokas extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-//		Integer id = request.getParameter("id");
+//		String id = request.getParameter("id");
 		String sukunimi = request.getParameter("sukunimi");
 		String etunimi = request.getParameter("etunimi");
 		String puolue = request.getParameter("puolue");
@@ -73,7 +73,7 @@ public class TallennaEhdokas extends HttpServlet {
 		
 
 	        response.sendRedirect("/EhdokkaanLisays.jsp");
-		
+	
 	}
 
 	/**

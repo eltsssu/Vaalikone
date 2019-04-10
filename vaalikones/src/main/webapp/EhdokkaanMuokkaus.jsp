@@ -33,18 +33,28 @@
 <%-- <% 			 
 // List<Ehdokkaat> kaikkiEhdokkaat = (List<Ehdokkaat>) (request.getAttribute("ehdokaslista"));
 
-// String id = request.getParameter(id);
+ String id = request.getParameter(id);
 
 %> --%>
+
+<%
+
+		
+		String id = request.getParameter("ehdokasID"); 
+ 		out.print("ehdokasID"); 
+
+
+%>
+
 	<form action="" id="EhdokkaanMuokkaus">
-		<label>Sukunimi </label><input type='text' name='sukunimi' value=''><br>
-		<label>Etunimi </label><input type='text' name='etunimi' value=''><br>
-		<label>Puolue </label><input type='text' name='puolue' value=''><br>
-		<label>Kotipaikkakunta </label><input type='text' name='kotipaikkakunta' value=''><br>
-		<label>Ik‰ </label><input type='text' name='ika' value=''><br>
-		<label>Miksi eduskuntaan? </label><input type='text' name='miksiEduskuntaan' value=''><br>
-		<label>Mit‰ asioita haluat edist‰‰? </label><input type='text' name='mitaAsioitaHaluatEdistaa' value=''><br>
-		<label>Ammatti </label><input type='text' name='ammatti' value=''><br>
+		<label>Sukunimi </label><input type='text' name='sukunimi' value='ehdokasSukunimi'><br>
+<!-- 		<label>Etunimi </label><input type='text' name='etunimi' value=''><br> -->
+<!-- 		<label>Puolue </label><input type='text' name='puolue' value=''><br> -->
+<!-- 		<label>Kotipaikkakunta </label><input type='text' name='kotipaikkakunta' value=''><br> -->
+<!-- 		<label>Ik‰ </label><input type='text' name='ika' value=''><br> -->
+<!-- 		<label>Miksi eduskuntaan? </label><input type='text' name='miksiEduskuntaan' value=''><br> -->
+<!-- 		<label>Mit‰ asioita haluat edist‰‰? </label><input type='text' name='mitaAsioitaHaluatEdistaa' value=''><br> -->
+<!-- 		<label>Ammatti </label><input type='text' name='ammatti' value=''><br> -->
 			
 		<input type="submit" id="submitnappi" value="P‰ivit‰" />
 

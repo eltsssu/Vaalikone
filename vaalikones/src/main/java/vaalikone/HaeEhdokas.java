@@ -5,12 +5,16 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import javax.persistence.Query;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import persist.Ehdokkaat;
+import persist.Kysymykset;
 
 /**
  * Servlet implementation class HaeEhdokas
@@ -39,20 +43,30 @@ public class HaeEhdokas extends HttpServlet {
 
 		try {
 
-			Query q = em.createQuery("SELECT e.ehdokasId FROM Ehdokkaat e");
+			emf = Persistence.createEntityManagerFactory("vaalikones");
+			em = emf.createEntityManager();
+			
+			Ehdokkaat ehdokkaat = new Ehdokkaat();
+			
+			Integer id = ehdokkaat.getEhdokasId();
+			Ehdokkaat ehdokas = em.find(Ehdokkaat.class, id);
 
-			List kaikkiEhdokkaat = q.getResultList();
+			System.out.println(ehdokas);
+			
+			
 
-			String id = request.getParameter("id");
+			String ehdokasID = (request.getParameter("id"));
 
 			RequestDispatcher rd = request.getRequestDispatcher("EhdokkaanMuokkaus.jsp");
-			request.setAttribute("ehdokas", id);
+			request.setAttribute("ehdokasID", ehdokasID);
 			rd.forward(request, response);
 		}
 
 		catch (Exception e) {
 
 		}
+		
+  
 	}
 
 	/**
