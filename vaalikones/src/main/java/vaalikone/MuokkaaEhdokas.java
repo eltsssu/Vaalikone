@@ -7,8 +7,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
+
 import persist.Ehdokkaat;
 
 import javax.persistence.*;
@@ -44,6 +43,7 @@ public class MuokkaaEhdokas extends HttpServlet {
 //			
 //		}
 		
+		
 		String sukunimi = request.getParameter("sukunimi");
 		String etunimi = request.getParameter("etunimi");
 		String puolue = request.getParameter("puolue");
@@ -60,8 +60,16 @@ public class MuokkaaEhdokas extends HttpServlet {
 			emf = Persistence.createEntityManagerFactory("vaalikones");
 			em = emf.createEntityManager();
 			em.getTransaction().begin();
+			int x=0;
 			
-			Ehdokkaat eh = (Ehdokkaat) em.find(Ehdokkaat.class, 1);
+			String id = request.getParameter("muokattavaId");
+			Integer ehdokas_id=Integer.parseInt(id);
+//			
+//			Query q = em.createQuery("SELECT e FROM Ehdokkaat e WHERE e.ehdokasId=?1");
+//			q.setParameter(1, ehdokas_id);
+//			List<Ehdokkaat> kaikkiEhdokkaat = (List<Ehdokkaat>)(q.getResultList());
+			
+			Ehdokkaat eh = (Ehdokkaat) em.find(Ehdokkaat.class, ehdokas_id);
 			
 			eh.setSukunimi(sukunimi);
 			eh.setEtunimi(etunimi);
@@ -83,7 +91,7 @@ public class MuokkaaEhdokas extends HttpServlet {
 			return;
 		}
 		
-		//response.sendRedirect("/EhdokasLista.jsp");
+		response.sendRedirect("/Yllapito");
 	}
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
