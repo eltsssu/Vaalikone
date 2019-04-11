@@ -5,14 +5,14 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Yllï¿½pito</title>
+<title>Ylläpito</title>
 </head>
 <link href="style.css" rel="stylesheet" type="text/css">
 <div id="container">
-<h1>Yllï¿½pito</h1>
+<h1>Ylläpito</h1>
 <body>
 
-	<a href="/EhdokkaanLisays.jsp">Lisï¿½ï¿½ uusi ehdokas</a>
+	<a href="/EhdokkaanLisays.jsp">Lisää uusi ehdokas</a>
 
 	<br>
 
