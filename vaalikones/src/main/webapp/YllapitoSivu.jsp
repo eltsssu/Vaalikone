@@ -8,6 +8,7 @@
 <title>Ylläpito</title>
 </head>
 <link href="style.css" rel="stylesheet" type="text/css">
+<div id="container">
 <h1>Ylläpito</h1>
 <body>
 
@@ -21,4 +22,5 @@
 
 
 </body>
+</div>
 </html>
