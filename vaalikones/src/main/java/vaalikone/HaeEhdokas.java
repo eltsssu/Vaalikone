@@ -41,7 +41,7 @@ public class HaeEhdokas extends HttpServlet {
 		EntityManager em = null;
 
 		try {
-			
+
 			emf = Persistence.createEntityManagerFactory("vaalikones");
 			em = emf.createEntityManager();
 
@@ -53,18 +53,18 @@ public class HaeEhdokas extends HttpServlet {
 						
 			Query q = em.createQuery("SELECT e FROM Ehdokkaat e WHERE e.ehdokasId=?1");
 			q.setParameter(1, ehdokas_id);
-			List<Ehdokkaat> kaikkiEhdokkaat = (List<Ehdokkaat>)(q.getResultList());
+			List<Ehdokkaat> kaikkiEhdokkaat = (List<Ehdokkaat>) (q.getResultList());
 
-			if (kaikkiEhdokkaat==null) {
+			if (kaikkiEhdokkaat == null) {
 				System.out.println("HaeEhdokas Ei ehdokkaita");
-			}
-			else {
-				System.out.println("HaeEhdokas ON ehdokkaita "+kaikkiEhdokkaat.size());
+			} else {
+				System.out.println("HaeEhdokas ON ehdokkaita " + kaikkiEhdokkaat.size());
 			}
 
 			RequestDispatcher rd = request.getRequestDispatcher("EhdokkaanMuokkaus.jsp");
 			request.setAttribute("ehdokasLista", kaikkiEhdokkaat);
 			rd.forward(request, response);
+
 		}
 
 		catch (Exception e) {
