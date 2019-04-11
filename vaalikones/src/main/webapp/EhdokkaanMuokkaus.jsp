@@ -72,10 +72,8 @@ catch(Exception z){
 <td><input type="text" name="ammatti" value="<%=e.getAmmatti()%>" /></td>
 </tr>
 <tr>
-<td><input type="submit" id="submitnappi2" formaction="/PoistaEhdokas" value="Poista" /></td>
-</tr>
-<tr>
-<td><input type="submit" id="submitnappi1" value="Päivitä" /></td>
+<td><input type="submit" id="submitnappi2" formaction="/PoistaEhdokas" value="Poista" />
+<input type="submit" id="submitnappi1" value="Päivitä" /></td>
 </tr>
 </tbody>
 </table>
