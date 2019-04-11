@@ -52,7 +52,7 @@
     <servlet-name>MuokkaaEhdokas</servlet-name>
     <url-pattern>/MuokkaaEhdokas</url-pattern>
   </servlet-mapping>
-      <servlet>
+  <servlet>
     <servlet-name>PoistaEhdokas</servlet-name>
     <servlet-class>vaalikone.PoistaEhdokas</servlet-class>
   </servlet>
