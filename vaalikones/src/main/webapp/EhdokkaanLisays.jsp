@@ -1,6 +1,5 @@
-<%-- <%@ page language="java" contentType="text/html; charset=ISO-8859-1" --%>
-<%-- 	pageEncoding="ISO-8859-1"%> --%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@page import="java.util.*,vaalikone.Yllapito,persist.*"%>
 <!DOCTYPE html>
 <html>
@@ -20,19 +19,19 @@
 <tbody> 
 <tr> 
 <td>Sukunimi</td> 
-<td><input type="text" name="sukunimi"value="sukunimi" /></td> 
+<td><input type="text" name="sukunimi"value="" /></td> 
 </tr> 
 <tr> 
 <td>Etunimi</td> 
-<td><input type="text" name="etunimi" value="etunimi" /></td> 
+<td><input type="text" name="etunimi" value="" /></td> 
 </tr> 
 <tr> 
 <td>Puolue</td> 
-<td><input type="text" name="puolue" value="puolue" /></td> 
+<td><input type="text" name="puolue" value="" /></td> 
 </tr> 
 <tr> 
 <td>Kotipaikkakunta</td> 
-<td><input type="text" name="kotipaikkakunta" value="kotipaikkakunta" /></td> 
+<td><input type="text" name="kotipaikkakunta" value="" /></td> 
 </tr> 
 <tr> 
 <td>Ikä</td> 
@@ -40,15 +39,15 @@
 </tr> 
 <tr> 
 <td>Miksi eduskuntaan?</td> 
-<td><input type="text" name="miksieduskuntaan" value="miksieduskuntaan" /></td> 
+<td><input type="text" name="miksieduskuntaan" value="" /></td> 
 </tr> 
 <tr> 
 <td>Mitä asioita haluat edustaa?</td> 
-<td><input type="text" name="mitahaluat" value="mitahaluat" /></td> 
+<td><input type="text" name="mitahaluat" value="" /></td> 
 </tr> 
 <tr> 
 <td>Ammatti</td> 
-<td><input type="text" name="ammatti" value="ammatti" /></td> 
+<td><input type="text" name="ammatti" value=""/></td> 
 </tr> 
 <tr> 
 <td><input type="submit" id="submitnappi1" value="Lisää" /></td> 

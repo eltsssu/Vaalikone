@@ -37,8 +37,8 @@ public class MuokkaaEhdokas extends HttpServlet {
 		String puolue = request.getParameter("puolue");
 		String kotipaikkakunta = request.getParameter("kotipaikkakunta");
 		Integer ika = Integer.parseInt(request.getParameter("ika"));
-		String miksi = request.getParameter("miksiEduskuntaan");
-		String mita = request.getParameter("mitaAsioitaHaluatEdistaa");
+		String miksi = request.getParameter("miksieduskuntaan");
+		String mita = request.getParameter("mitahaluat");
 		String ammatti = request.getParameter("ammatti");
 		
 		EntityManagerFactory emf = null;
@@ -74,7 +74,7 @@ public class MuokkaaEhdokas extends HttpServlet {
 			return;
 		}
 		
-		response.sendRedirect("/Yllapito");
+		response.sendRedirect("/YllapitoSivu.jsp");
 	}
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
