@@ -7,6 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Ehdokaslista</title>
 <link href="style.css" rel="stylesheet" type="text/css">
+<div id="container">
 </head>
 <h1>Ehdokaslista</h1>
 <body>
@@ -32,4 +33,5 @@
 	
 
 </body>
+</div>
 </html>

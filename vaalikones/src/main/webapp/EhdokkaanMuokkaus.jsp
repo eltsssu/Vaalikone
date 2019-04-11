@@ -31,6 +31,7 @@ catch(Exception z){
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>EhdokkaanMuokkaus</title>
 <link href="style.css" rel="stylesheet" type="text/css"> -->
+<div id="container">
 </head>
 <h1>Ehdokkaan Muokkaus</h1>
 <body>
@@ -50,4 +51,5 @@ catch(Exception z){
 		<input type="submit" id="submitnappi1" value="Päivitä" />		
 	</form>
 </body>
+</div>
 </html>

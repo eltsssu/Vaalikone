@@ -7,6 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>EhdokkaanLisays</title>
 <link href="style.css" rel="stylesheet" type="text/css">
+<div id="container">
 </head>
 <h1>Ehdokkaan Lisäys</h1>
 <body>
@@ -31,4 +32,5 @@
 	</div>
 
 </body>
+</div>
 </html>
