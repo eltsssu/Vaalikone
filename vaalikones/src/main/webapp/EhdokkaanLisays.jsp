@@ -27,7 +27,7 @@
 				asioita haluat edustaa? </label><input type="text" name="mitahaluat"
 				value="mitahaluat" /><br> <label>Ammatti </label><input
 				type="text" name="ammatti" value="ammatti" /><br> <input
-				type="submit" id="submitnappi" value="Lisää" /><br>
+				type="submit" id="submitnappi1" value="Lisää" /><br>
 		</form>
 
 	</div>
