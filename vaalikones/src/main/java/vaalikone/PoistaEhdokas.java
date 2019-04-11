@@ -1,7 +1,7 @@
 package vaalikone;
 
 import java.io.IOException;
-import java.io.PrintWriter;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -13,44 +13,46 @@ import javax.servlet.http.HttpServletResponse;
 import persist.Ehdokkaat;
 
 /**
- * Servlet implementation class EhdokkaanLisaaminen
+ * Servlet implementation class PoistaEhdokas
  */
-public class TallennaEhdokas extends HttpServlet {
+public class PoistaEhdokas extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public PoistaEhdokas() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
 
 	/**
-	 * @see HttpServlet#HttpServlet()
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	public TallennaEhdokas() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-//		Integer id = request.getParameter("id");
 		String sukunimi = request.getParameter("sukunimi");
 		String etunimi = request.getParameter("etunimi");
 		String puolue = request.getParameter("puolue");
 		String kotipaikkakunta = request.getParameter("kotipaikkakunta");
 		Integer ika = Integer.parseInt(request.getParameter("ika"));
-		String miksi = request.getParameter("miksieduskuntaan");
-		String mita = request.getParameter("mitahaluat");
+		String miksi = request.getParameter("miksiEduskuntaan");
+		String mita = request.getParameter("mitaAsioitaHaluatEdistaa");
 		String ammatti = request.getParameter("ammatti");
-
+		
 		EntityManagerFactory emf = null;
 		EntityManager em = null;
+		
 		try {
 			emf = Persistence.createEntityManagerFactory("vaalikones");
 			em = emf.createEntityManager();
 			em.getTransaction().begin();
-
-			Ehdokkaat eh = new Ehdokkaat();
+			
+			String id = request.getParameter("muokattavaId");
+			Integer ehdokas_id=Integer.parseInt(id);
+			
+			Ehdokkaat eh = (Ehdokkaat) em.find(Ehdokkaat.class, ehdokas_id);
+			
 			eh.setSukunimi(sukunimi);
 			eh.setEtunimi(etunimi);
 			eh.setPuolue(puolue);
@@ -59,27 +61,25 @@ public class TallennaEhdokas extends HttpServlet {
 			eh.setMiksiEduskuntaan(miksi);
 			eh.setMitaAsioitaHaluatEdistaa(mita);
 			eh.setAmmatti(ammatti);
-			em.persist(eh);
+			em.remove(eh);
 			em.getTransaction().commit();
-			em.close();
-		} catch (Exception e) {
+			em.close();	
+		
+			
+		} catch (Exception z) {
 			response.getWriter().println("EMF+EM EI Onnistu");
 
-			e.printStackTrace(response.getWriter());
-
+			z.printStackTrace(response.getWriter());
 			return;
 		}
-
-		response.sendRedirect("/EhdokkaanLisays.jsp");
-
+		int i=0;
+		response.sendRedirect("/Yllapito");
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}

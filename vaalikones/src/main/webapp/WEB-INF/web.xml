@@ -36,13 +36,37 @@
     <servlet-name>HaeEhdokasLista</servlet-name>
     <url-pattern>/HaeEhdokasLista</url-pattern>
   </servlet-mapping>
-    <servlet>
+  <servlet>
     <servlet-name>HaeEhdokas</servlet-name>
     <servlet-class>vaalikone.HaeEhdokas</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>HaeEhdokas</servlet-name>
     <url-pattern>/HaeEhdokas</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>MuokkaaEhdokas</servlet-name>
+    <servlet-class>vaalikone.MuokkaaEhdokas</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MuokkaaEhdokas</servlet-name>
+    <url-pattern>/MuokkaaEhdokas</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>PoistaEhdokas</servlet-name>
+    <servlet-class>vaalikone.PoistaEhdokas</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PoistaEhdokas</servlet-name>
+    <url-pattern>/PoistaEhdokas</url-pattern>
+  </servlet-mapping>
+    <servlet>
+    <servlet-name>FiltteroidaanEhdokasLista</servlet-name>
+    <servlet-class>vaalikone.FiltteroidaanEhdokasLista</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FiltteroidaanEhdokasLista</servlet-name>
+    <url-pattern>/FiltteroidaanEhdokasLista</url-pattern>
   </servlet-mapping>
   <session-config>
     <session-timeout>30</session-timeout>

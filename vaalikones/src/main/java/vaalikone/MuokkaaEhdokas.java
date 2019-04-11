@@ -31,19 +31,7 @@ public class MuokkaaEhdokas extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
-//		List<Ehdokkaat> kaikkiEhdokkaat = (List<Ehdokkaat>) (request.getAttribute("ehdokasLista"));
-//		
-//		Ehdokkaat e=null;
-//		try{
-//		e=(Ehdokkaat)(kaikkiEhdokkaat.get(0));
-//		}
-//		
-//		catch(Exception z){
-//			
-//		}
-		
-		
+				
 		String sukunimi = request.getParameter("sukunimi");
 		String etunimi = request.getParameter("etunimi");
 		String puolue = request.getParameter("puolue");
@@ -60,14 +48,9 @@ public class MuokkaaEhdokas extends HttpServlet {
 			emf = Persistence.createEntityManagerFactory("vaalikones");
 			em = emf.createEntityManager();
 			em.getTransaction().begin();
-			int x=0;
 			
 			String id = request.getParameter("muokattavaId");
 			Integer ehdokas_id=Integer.parseInt(id);
-//			
-//			Query q = em.createQuery("SELECT e FROM Ehdokkaat e WHERE e.ehdokasId=?1");
-//			q.setParameter(1, ehdokas_id);
-//			List<Ehdokkaat> kaikkiEhdokkaat = (List<Ehdokkaat>)(q.getResultList());
 			
 			Ehdokkaat eh = (Ehdokkaat) em.find(Ehdokkaat.class, ehdokas_id);
 			

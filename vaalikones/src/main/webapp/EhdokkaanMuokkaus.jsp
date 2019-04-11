@@ -30,11 +30,12 @@ catch(Exception z){
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>EhdokkaanMuokkaus</title>
+<!-- <link href="style.css" rel="stylesheet" type="text/css"> -->
 </head>
 <h1>Ehdokkaan Muokkaus</h1>
 <body>
 
-		<form action="MuokkaaEhdokas" id="EhdokkaanMuokkaus">
+	<form action="MuokkaaEhdokas" id="EhdokkaanMuokkaus"  method="post">
 		<input type="hidden" name="muokattavaId" value='<%=e.getEhdokasId() %>'>
 		<label>Sukunimi: </label><input type='text' name='sukunimi' value='<%=e.getSukunimi()%>'><br>
 		<label>Etunimi: </label><input type='text' name='etunimi' value='<%=e.getEtunimi()%>'><br>
@@ -44,9 +45,9 @@ catch(Exception z){
 		<label>Miksi eduskuntaan: </label><input type='text' name='miksiEduskuntaan' value='<%=e.getMiksiEduskuntaan()%>'><br>
 		<label>Mit‰ asioita haluat edist‰‰: </label><input type='text' name='mitaAsioitaHaluatEdistaa' value='<%=e.getMitaAsioitaHaluatEdistaa()%>'><br>
 		<label>Ammatti: </label><input type='text' name='ammatti' value='<%=e.getAmmatti()%>'><br>
-				
-		<input type="submit" id="submitnappi" value="P‰ivit‰" /><br>
-
-
+		
+		<input type="submit" id="submitnappi2" formaction="/PoistaEhdokas" value="Poista" />		
+		<input type="submit" id="submitnappi" value="P‰ivit‰" />		
+	</form>
 </body>
 </html>
