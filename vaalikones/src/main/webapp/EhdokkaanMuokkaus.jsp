@@ -27,6 +27,8 @@ catch(Exception z){
 
 <!DOCTYPE html>
 <html>
+<link href="style.css" rel="stylesheet" type="text/css">
+<div id="container">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>EhdokkaanMuokkaus</title>
@@ -41,13 +43,14 @@ catch(Exception z){
 		<label>Etunimi: </label><input type='text' name='etunimi' value='<%=e.getEtunimi()%>'><br>
 		<label>Puolue: </label><input type='text' name='puolue' value='<%=e.getPuolue()%>'><br>
 		<label>Kotipaikkakunta: </label><input type='text' name='kotipaikkakunta' value='<%=e.getKotipaikkakunta()%>'><br>
-		<label>Ikï¿½: </label><input type='text' name='ika' value='<%=e.getIka()%>'><br>
+		<label>Ikä: </label><input type='text' name='ika' value='<%=e.getIka()%>'><br>
 		<label>Miksi eduskuntaan: </label><input type='text' name='miksiEduskuntaan' value='<%=e.getMiksiEduskuntaan()%>'><br>
-		<label>Mitï¿½ asioita haluat edistï¿½ï¿½: </label><input type='text' name='mitaAsioitaHaluatEdistaa' value='<%=e.getMitaAsioitaHaluatEdistaa()%>'><br>
+		<label>Mitïä asioita haluat edistää: </label><input type='text' name='mitaAsioitaHaluatEdistaa' value='<%=e.getMitaAsioitaHaluatEdistaa()%>'><br>
 		<label>Ammatti: </label><input type='text' name='ammatti' value='<%=e.getAmmatti()%>'><br>
 		
 		<input type="submit" id="submitnappi2" formaction="/PoistaEhdokas" value="Poista" />		
-		<input type="submit" id="submitnappi" value="Pï¿½ivitï¿½" />		
+		<input type="submit" id="submitnappi" value="Päivitä" />		
 	</form>
 </body>
+</div>
 </html>

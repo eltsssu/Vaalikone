@@ -8,6 +8,8 @@
 <title>Ehdokaslista</title>
 <!-- <link href="style.css" rel="stylesheet" type="text/css"> -->
 </head>
+<link href="style.css" rel="stylesheet" type="text/css">
+<div id="container">
 <h1>Ehdokaslista</h1>
 <body>
 
@@ -32,4 +34,5 @@
 	
 
 </body>
+</div>
 </html>

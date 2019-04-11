@@ -8,6 +8,8 @@
 <title>EhdokkaanLisays</title>
 <!-- <link href="style.css" rel="stylesheet" type="text/css"> -->
 </head>
+<link href="style.css" rel="stylesheet" type="text/css">
+<div id="container">
 <h1>Ehdokkaan Lisäys</h1>
 <body>
 
@@ -31,4 +33,5 @@
 	</div>
 
 </body>
+</div>
 </html>

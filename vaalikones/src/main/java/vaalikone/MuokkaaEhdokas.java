@@ -74,7 +74,7 @@ public class MuokkaaEhdokas extends HttpServlet {
 			return;
 		}
 		
-		response.sendRedirect("/Yllapito");
+		response.sendRedirect("/YllapitoSivu.jsp");
 	}
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
