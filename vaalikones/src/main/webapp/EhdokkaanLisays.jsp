@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="ISO-8859-1"%>
 <%@page import="java.util.*,vaalikone.Yllapito,persist.*"%>
 <!DOCTYPE html>
@@ -15,20 +15,49 @@
 
 	<div class=Lisays>
 
-		<form action="TallennaEhdokas" id="EhdokkaanLisays" method="post">
-			<label>Sukunimi </label><input type="text" name="sukunimi"
-				value="sukunimi" /><br> <label>Etunimi </label><input
-				type="text" name="etunimi" value="etunimi" /><br> <label>Puolue </label><input
-				type="text" name="puolue" value="puolue" /><br> <label>Kotipaikkakunta </label><input
-				type="text" name="kotipaikkakunta" value="kotipaikkakunta" /><br>
-			<label>Ikä </label><input type="text" name="ika" value="5" /><br>
-			<label>Miksi eduskuntaan? </label><input type="text"
-				name="miksieduskuntaan" value="miksieduskuntaan" /><br> <label>Mitä
-				asioita haluat edustaa? </label><input type="text" name="mitahaluat"
-				value="mitahaluat" /><br> <label>Ammatti </label><input
-				type="text" name="ammatti" value="ammatti" /><br> <input
-				type="submit" id="submitnappi1" value="Lisää" /><br>
+				<form action="TallennaEhdokas" id="EhdokkaanLisays" method="post">
+<table>
+<tbody>
+<tr>
+<td>Sukunimi</td>
+<td><input type="text" name="sukunimi"value="sukunimi" /></td>
+</tr>
+<tr>
+<td>Etunimi</td>
+<td><input type="text" name="etunimi" value="etunimi" /></td>
+</tr>
+<tr>
+<td>Puolue</td>
+<td><input type="text" name="puolue" value="puolue" /></td>
+</tr>
+<tr>
+<td>Kotipaikkakunta</td>
+<td><input type="text" name="kotipaikkakunta" value="kotipaikkakunta" /></td>
+</tr>
+<tr>
+<td>Ikä</td>
+<td><input type="text" name="ika" value="5" /></td>
+</tr>
+<tr>
+<td>Miksi eduskuntaan?</td>
+<td><input type="text" name="miksieduskuntaan" value="miksieduskuntaan" /></td>
+</tr>
+<tr>
+<td>Mitä asioita haluat edustaa?</td>
+<td><input type="text" name="mitahaluat" value="mitahaluat" /></td>
+</tr>
+<tr>
+<td>Ammatti</td>
+<td><input type="text" name="ammatti" value="ammatti" /></td>
+</tr>
+<tr>
+<td><input type="submit" id="submitnappi1" value="Lisää" /></td>
+</tr>
+</tbody>
+</table>
 		</form>
+
+		
 
 	</div>
 
