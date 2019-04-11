@@ -14,7 +14,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import persist.Ehdokkaat;
-import persist.Kysymykset;
 
 /**
  * Servlet implementation class HaeEhdokas
@@ -42,28 +41,45 @@ public class HaeEhdokas extends HttpServlet {
 		EntityManager em = null;
 
 		try {
-
+			
 			emf = Persistence.createEntityManagerFactory("vaalikones");
 			em = emf.createEntityManager();
-			
-			Ehdokkaat ehdokkaat = new Ehdokkaat();
-			
-			Integer id = ehdokkaat.getEhdokasId();
-			Ehdokkaat ehdokas = em.find(Ehdokkaat.class, id);
 
-			System.out.println(ehdokas);
+			String id = request.getParameter("id");
+			Integer ehdokas_id=Integer.parseInt(id);
+			
+			System.out.println("Haettava ehdokas="+id);
+			System.out.println("Haettava ehdokas_id="+ehdokas_id);
 			
 			
+//			Query q = em.createQuery("SELECT k FROM Kysymykset k WHERE k.kysymysId=?1");
+//			q.setParameter(1, kysymys_id);
+			
+			
+			Query q = em.createQuery("SELECT e FROM Ehdokkaat e WHERE e.ehdokasId=?1");
+			q.setParameter(1, ehdokas_id);
+			List<Ehdokkaat> kaikkiEhdokkaat = (List<Ehdokkaat>)(q.getResultList());
 
-			String ehdokasID = (request.getParameter("id"));
+			if (kaikkiEhdokkaat==null) {
+				System.out.println("HaeEhdokas Ei ehdokkaita");
+			}
+			else {
+				System.out.println("HaeEhdokas ON ehdokkaita "+kaikkiEhdokkaat.size());
+			}
+
+//			String sukunimi = request.getParameter("sukunimi");
+//			String etunimi = request.getParameter("etunimi");
 
 			RequestDispatcher rd = request.getRequestDispatcher("EhdokkaanMuokkaus.jsp");
-			request.setAttribute("ehdokasID", ehdokasID);
+			request.setAttribute("ehdokasLista", kaikkiEhdokkaat);
+//			request.setAttribute("ehdokas", id);
+//			request.setAttribute("ehdokas", sukunimi);
+//			request.setAttribute("ehdokas", etunimi);
 			rd.forward(request, response);
 		}
 
 		catch (Exception e) {
-
+System.out.println("Ongelmia: "+e.getMessage());
 		}
 		
   

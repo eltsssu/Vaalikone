@@ -3,6 +3,28 @@
 <%@page import="java.util.*,vaalikone.Yllapito,persist.*"%>
 <%@page import="persist.Ehdokkaat"%>
 
+
+<%
+List<Ehdokkaat> kaikkiEhdokkaat = (List<Ehdokkaat>) (request.getAttribute("ehdokasLista"));
+
+if (kaikkiEhdokkaat==null) {
+	System.out.println("JSP Ei ehdokkaita");
+}
+else {
+	System.out.println("JSP ON ehdokkaita");
+}
+
+
+
+Ehdokkaat e=null;
+try{
+e=(Ehdokkaat)(kaikkiEhdokkaat.get(0));
+}
+catch(Exception z){
+	out.println("Ehdokkaan poiminta on mukavaa toimintaa");
+}
+%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,57 +33,20 @@
 </head>
 <h1>Ehdokkaan Muokkaus</h1>
 <body>
-	
 
+		<form action="MuokkaaEhdokas" id="EhdokkaanMuokkaus">
+		<input type="hidden" name="muokattavaId" value='<%=e.getEhdokasId() %>'>
+		<label>Sukunimi: </label><input type='text' name='sukunimi' value='<%=e.getSukunimi() %>'><br>
+		<label>Etunimi: </label><input type='text' name='etunimi' value='<%=e.getEtunimi() %>'><br>
+		<label>Puolue: </label><input type='text' name='puolue' value='<%=e.getPuolue()%>'><br>
+		<label>Kotipaikkakunta: </label><input type='text' name='kotipaikkakunta' value='<%=e.getKotipaikkakunta()%>'><br>
+		<label>Ikï¿½: </label><input type='text' name='ika' value='<%=e.getIka()%>'><br>
+		<label>Miksi eduskuntaan: </label><input type='text' name='miksiEduskuntaan' value='<%=e.getMiksiEduskuntaan()%>'><br>
+		<label>Mitï¿½ asioita haluat edistï¿½ï¿½: </label><input type='text' name='mitaAsioitaHaluatEdistaa' value='<%=e.getMitaAsioitaHaluatEdistaa()%>'><br>
+		<label>Ammatti: </label><input type='text' name='ammatti' value='<%=e.getAmmatti()%>'><br>
+		<input type="submit" id="submitnappi" value="Pï¿½ivitï¿½" /><br>
+		<input type="submit" id="submitnappi2" formaction="/PoistaEhdokas" value="Poista" /><br>
 
-<!-- 	<form action="" id="EhdokkaanMuokkaus"> -->
-<%-- 		<label>Etunimi: </label><input type='text' name='etunimi' value='<%=e.getEtunimi()%>'> --%>
-<%-- 		<label>Sukunimi: </label><input type='text' name='sukunimi' value='<%=e.getSukunimi()%>'> --%>
-<%-- 		<label>Puolue: </label><input type='text' name='puolue' value='<%=e.getPuolue()%>'> --%>
-<%-- 		<label>Kotipaikkakunta: </label><input type='text' name='kotipaikkakunta' value='<%=e.getKotipaikkakunta()%>'> --%>
-<%-- 		<label>Ikä: </label><input type='text' name='ika' value='<%=e.getIka()%>'> --%>
-<%-- 		<label>Miksi eduskuntaan: </label><input type='text' name='miksiEduskuntaan' value='<%=e.getMiksiEduskuntaan()%>'> --%>
-<%-- 		<label>Mitä asioita haluat edistää: </label><input type='text' name='mitaAsioitaHaluatEdistaa' value='<%=e.getMitaAsioitaHaluatEdistaa()%>'> --%>
-<%-- 		<label>Ammatti: </label><input type='text' name='ammatti' value='<%=e.getAmmatti()%>'> --%>
-				
-<!-- 		<input type="submit" id="submitnappi" value="Päivitä" /><br> -->
-
-
-
-
-<!-- 	</form> -->
-<%-- <% 			 
-// List<Ehdokkaat> kaikkiEhdokkaat = (List<Ehdokkaat>) (request.getAttribute("ehdokaslista"));
-
- String id = request.getParameter(id);
-
-%> --%>
-
-<%
-
-		
-		String id = request.getParameter("ehdokasID"); 
- 		out.print("ehdokasID"); 
-
-
-%>
-
-	<form action="" id="EhdokkaanMuokkaus">
-		<label>Sukunimi </label><input type='text' name='sukunimi' value='ehdokasSukunimi'><br>
-<!-- 		<label>Etunimi </label><input type='text' name='etunimi' value=''><br> -->
-<!-- 		<label>Puolue </label><input type='text' name='puolue' value=''><br> -->
-<!-- 		<label>Kotipaikkakunta </label><input type='text' name='kotipaikkakunta' value=''><br> -->
-<!-- 		<label>Ikä </label><input type='text' name='ika' value=''><br> -->
-<!-- 		<label>Miksi eduskuntaan? </label><input type='text' name='miksiEduskuntaan' value=''><br> -->
-<!-- 		<label>Mitä asioita haluat edistää? </label><input type='text' name='mitaAsioitaHaluatEdistaa' value=''><br> -->
-<!-- 		<label>Ammatti </label><input type='text' name='ammatti' value=''><br> -->
-			
-		<input type="submit" id="submitnappi" value="Päivitä" />
-
-
-
-
-	</form>
-
+</form>
 </body>
 </html>

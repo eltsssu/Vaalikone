@@ -14,16 +14,16 @@ import javax.servlet.http.HttpServletResponse;
 import persist.Ehdokkaat;
 
 /**
- * Servlet implementation class MuokkaaEhdokas
+ * Servlet implementation class PoistaEhdokas
  */
-@WebServlet("/MuokkaaEhdokasta")
-public class MuokkaaEhdokasta extends HttpServlet {
+
+public class PoistaEhdokas extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public MuokkaaEhdokasta() {
+    public PoistaEhdokas() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -38,20 +38,25 @@ public class MuokkaaEhdokasta extends HttpServlet {
 		String puolue = request.getParameter("puolue");
 		String kotipaikkakunta = request.getParameter("kotipaikkakunta");
 		Integer ika = Integer.parseInt(request.getParameter("ika"));
-		String miksi = request.getParameter("miksieduskuntaan");
-		String mita = request.getParameter("mitahaluat");
+		String miksi = request.getParameter("miksiEduskuntaan");
+		String mita = request.getParameter("mitaAsioitaHaluatEdistaa");
 		String ammatti = request.getParameter("ammatti");
 		
-				
-		 	EntityManagerFactory emf=null;
-	        EntityManager em = null;
-	        try {
-	  	      emf=Persistence.createEntityManagerFactory("vaalikones");
-	  	      em = emf.createEntityManager();
-	  	      em.getTransaction().begin();
-	  	    
-	  	    Ehdokkaat eh = new Ehdokkaat();
-	  		eh.setSukunimi(sukunimi);
+		EntityManagerFactory emf = null;
+		EntityManager em = null;
+		
+		try {
+			emf = Persistence.createEntityManagerFactory("vaalikones");
+			em = emf.createEntityManager();
+			em.getTransaction().begin();
+			int x=0;
+			
+			String id = request.getParameter("muokattavaId");
+			Integer ehdokas_id=Integer.parseInt(id);
+			
+			Ehdokkaat eh = (Ehdokkaat) em.find(Ehdokkaat.class, ehdokas_id);
+			
+			eh.setSukunimi(sukunimi);
 			eh.setEtunimi(etunimi);
 			eh.setPuolue(puolue);
 			eh.setKotipaikkakunta(kotipaikkakunta);
@@ -59,21 +64,19 @@ public class MuokkaaEhdokasta extends HttpServlet {
 			eh.setMiksiEduskuntaan(miksi);
 			eh.setMitaAsioitaHaluatEdistaa(mita);
 			eh.setAmmatti(ammatti);
-	        em.persist(eh);
-	        em.getTransaction().commit();
-	        em.close();
-	        }
-	        catch(Exception e) {
-	          	response.getWriter().println("EMF+EM EI Onnistu");
-	          	
-	          	e.printStackTrace(response.getWriter());
-	          	
-	          	return;
-	        }
+			em.remove(eh);
+			em.getTransaction().commit();
+			em.close();	
 		
+			
+		} catch (Exception z) {
+			response.getWriter().println("EMF+EM EI Onnistu");
 
-	        response.sendRedirect("/Ehdokaslista.jsp");
+			z.printStackTrace(response.getWriter());
+			return;
+		}
 		
+		response.sendRedirect("/Yllapito");
 	}
 	
 

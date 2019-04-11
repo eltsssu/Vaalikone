@@ -42,19 +42,23 @@ public class HaeEhdokasLista extends HttpServlet {
 		EntityManager em = null;
 
 		try {
+			
+			emf = Persistence.createEntityManagerFactory("vaalikones");
+			em = emf.createEntityManager();
 
 			emf = Persistence.createEntityManagerFactory("vaalikones");
 			em = emf.createEntityManager();
 			
 			Query q = em.createQuery("SELECT e FROM Ehdokkaat e");
-		
-			List kaikkiEhdokkaat = q.getResultList();
 
+			List<Ehdokkaat> kaikkiEhdokkaat = (List<Ehdokkaat>)(q.getResultList());
+
+			
 			RequestDispatcher rd = request.getRequestDispatcher("EhdokasLista.jsp");
-			request.setAttribute("ehdokaslista", kaikkiEhdokkaat);
+			request.setAttribute("ehdokasLista", kaikkiEhdokkaat);
 			rd.forward(request, response);
 		}
-
+			
 		catch (Exception e) {
 
 		}
