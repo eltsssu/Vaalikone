@@ -60,6 +60,14 @@
     <servlet-name>PoistaEhdokas</servlet-name>
     <url-pattern>/PoistaEhdokas</url-pattern>
   </servlet-mapping>
+    <servlet>
+    <servlet-name>FiltteroidaanEhdokasLista</servlet-name>
+    <servlet-class>vaalikone.FiltteroidaanEhdokasLista</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FiltteroidaanEhdokasLista</servlet-name>
+    <url-pattern>/FiltteroidaanEhdokasLista</url-pattern>
+  </servlet-mapping>
   <session-config>
     <session-timeout>30</session-timeout>
   </session-config>

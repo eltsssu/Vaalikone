@@ -46,11 +46,11 @@ public class HaeEhdokas extends HttpServlet {
 			em = emf.createEntityManager();
 
 			String id = request.getParameter("id");
-			Integer ehdokas_id = Integer.parseInt(id);
-
-			System.out.println("Haettava ehdokas=" + id);
-			System.out.println("Haettava ehdokas_id=" + ehdokas_id);
-
+			Integer ehdokas_id=Integer.parseInt(id);
+			
+			System.out.println("Haettava ehdokas="+id);
+			System.out.println("Haettava ehdokas_id="+ehdokas_id);
+						
 			Query q = em.createQuery("SELECT e FROM Ehdokkaat e WHERE e.ehdokasId=?1");
 			q.setParameter(1, ehdokas_id);
 			List<Ehdokkaat> kaikkiEhdokkaat = (List<Ehdokkaat>) (q.getResultList());
@@ -63,13 +63,12 @@ public class HaeEhdokas extends HttpServlet {
 
 			RequestDispatcher rd = request.getRequestDispatcher("EhdokkaanMuokkaus.jsp");
 			request.setAttribute("ehdokasLista", kaikkiEhdokkaat);
-
 			rd.forward(request, response);
 
 		}
 
 		catch (Exception e) {
-			System.out.println("Ongelmia: " + e.getMessage());
+			System.out.println("Ongelmia: "+e.getMessage());
 		}
 		
   
@@ -86,3 +85,4 @@ public class HaeEhdokas extends HttpServlet {
 	}
 
 }
+// select * from ehdokkaat where sukunimi like merkkijono ("aa%")

@@ -30,7 +30,8 @@ public class MuokkaaEhdokas extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		// TODO Auto-generated method stub
+				
 		String sukunimi = request.getParameter("sukunimi");
 		String etunimi = request.getParameter("etunimi");
 		String puolue = request.getParameter("puolue");
@@ -74,7 +75,7 @@ public class MuokkaaEhdokas extends HttpServlet {
 		}
 
 		
-		response.sendRedirect("/Yllapito");
+		response.sendRedirect("/YllapitoSivu.jsp");
 	}
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
