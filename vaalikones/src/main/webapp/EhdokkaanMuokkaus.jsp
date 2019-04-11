@@ -47,7 +47,7 @@ catch(Exception z){
 		<label>Ammatti: </label><input type='text' name='ammatti' value='<%=e.getAmmatti()%>'><br>
 		
 		<input type="submit" id="submitnappi2" formaction="/PoistaEhdokas" value="Poista" />		
-		<input type="submit" id="submitnappi" value="Pï¿½ivitï¿½" />		
+		<input type="submit" id="submitnappi" value="Päivitä" />		
 	</form>
 </body>
 </html>
