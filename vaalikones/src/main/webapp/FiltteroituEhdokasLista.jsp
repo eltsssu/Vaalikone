@@ -6,6 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Filtteroitu Ehdokaslista</title>
+<link href="style.css" rel="stylesheet" type="text/css">
 </head>
 <h1>Filtteroitu Ehdokaslista</h1>
 <body>

@@ -73,7 +73,7 @@ public class PoistaEhdokas extends HttpServlet {
 			return;
 		}
 		int i=0;
-		response.sendRedirect("/Yllapito");
+		response.sendRedirect("/YllapitoSivu.jsp");
 	}
 
 	/**

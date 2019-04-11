@@ -6,7 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>EhdokkaanLisays</title>
-<!-- <link href="style.css" rel="stylesheet" type="text/css"> -->
+<link href="style.css" rel="stylesheet" type="text/css">
 </head>
 <h1>Ehdokkaan Lisäys</h1>
 <body>
@@ -25,7 +25,7 @@
 				asioita haluat edustaa? </label><input type="text" name="mitahaluat"
 				value="mitahaluat" /><br> <label>Ammatti </label><input
 				type="text" name="ammatti" value="ammatti" /><br> <input
-				type="submit" id="submitnappi" value="Lisää" /><br>
+				type="submit" id="submitnappi1" value="Lisää" /><br>
 		</form>
 
 	</div>
