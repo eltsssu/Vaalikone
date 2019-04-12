@@ -70,6 +70,8 @@ public class HaeEhdokas extends HttpServlet {
 		catch (Exception e) {
 			System.out.println("Ongelmia: "+e.getMessage());
 		}
+		
+  
 	}
 
 	/**

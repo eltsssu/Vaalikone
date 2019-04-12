@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
 <%@page import="java.util.*,vaalikone.Yllapito,persist.*"%>
 <!DOCTYPE html>
 <html>
@@ -9,52 +9,29 @@
 <link href="style.css" rel="stylesheet" type="text/css">
 <div id="container">
 </head>
-<h1>Ehdokkaan Lisäys</h1>
+<link href="style.css" rel="stylesheet" type="text/css">
+<div id="container">
+<h1>Ehdokkaan Lis�ys</h1>
 <body>
 
 	<div class=Lisays>
 
 		<form action="TallennaEhdokas" id="EhdokkaanLisays" method="post">
-			<table> 
-<tbody> 
-<tr> 
-<td>Sukunimi</td> 
-<td><input type="text" name="sukunimi"value="" /></td> 
-</tr> 
-<tr> 
-<td>Etunimi</td> 
-<td><input type="text" name="etunimi" value="" /></td> 
-</tr> 
-<tr> 
-<td>Puolue</td> 
-<td><input type="text" name="puolue" value="" /></td> 
-</tr> 
-<tr> 
-<td>Kotipaikkakunta</td> 
-<td><input type="text" name="kotipaikkakunta" value="" /></td> 
-</tr> 
-<tr> 
-<td>Ikä</td> 
-<td><input type="text" name="ika" value="5" /></td> 
-</tr> 
-<tr> 
-<td>Miksi eduskuntaan?</td> 
-<td><input type="text" name="miksieduskuntaan" value="" /></td> 
-</tr> 
-<tr> 
-<td>Mitä asioita haluat edustaa?</td> 
-<td><input type="text" name="mitahaluat" value="" /></td> 
-</tr> 
-<tr> 
-<td>Ammatti</td> 
-<td><input type="text" name="ammatti" value=""/></td> 
-</tr> 
-<tr> 
-<td><input type="submit" id="submitnappi1" value="Lisää" /></td> 
-</tr> 
-</tbody> 
-</table> 
+			<label>Sukunimi </label><input type="text" name="sukunimi"
+				value="sukunimi" /><br> <label>Etunimi </label><input
+				type="text" name="etunimi" value="etunimi" /><br> <label>Puolue </label><input
+				type="text" name="puolue" value="puolue" /><br> <label>Kotipaikkakunta </label><input
+				type="text" name="kotipaikkakunta" value="kotipaikkakunta" /><br>
+			<label>Ik� </label><input type="text" name="ika" value="5" /><br>
+			<label>Miksi eduskuntaan? </label><input type="text"
+				name="miksieduskuntaan" value="miksieduskuntaan" /><br> <label>Mit�
+				asioita haluat edustaa? </label><input type="text" name="mitahaluat"
+				value="mitahaluat" /><br> <label>Ammatti </label><input
+				type="text" name="ammatti" value="ammatti" /><br> <input
+				type="submit" id="submitnappi" value="Lis��" /><br>
 		</form>
+
+		
 
 	</div>
 

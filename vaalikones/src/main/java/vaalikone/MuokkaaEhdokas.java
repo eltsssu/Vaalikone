@@ -73,6 +73,7 @@ public class MuokkaaEhdokas extends HttpServlet {
 			z.printStackTrace(response.getWriter());
 			return;
 		}
+
 		
 		response.sendRedirect("/YllapitoSivu.jsp");
 	}

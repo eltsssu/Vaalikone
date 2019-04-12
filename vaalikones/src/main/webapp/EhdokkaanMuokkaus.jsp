@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+	pageEncoding="ISO-8859-1"%>
 <%@page import="java.util.*,vaalikone.Yllapito,persist.*"%>
 <%@page import="persist.Ehdokkaat"%>
 
@@ -27,6 +27,8 @@ catch(Exception z){
 
 <!DOCTYPE html>
 <html>
+<link href="style.css" rel="stylesheet" type="text/css">
+<div id="container">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>EhdokkaanMuokkaus</title>
@@ -35,51 +37,49 @@ catch(Exception z){
 </head>
 <h1>Ehdokkaan Muokkaus</h1>
 <body>
-
-	<form action="MuokkaaEhdokas" id="EhdokkaanMuokkaus"  method="post">
-		<input type="hidden" name="muokattavaId" value='<%=e.getEhdokasId() %>'>
-		
-		<table> 
-<tbody> 
-<tr> 
-<td>Sukunimi</td> 
-<td><input type="text" name="sukunimi"value="<%=e.getSukunimi() %>" /></td> 
-</tr> 
-<tr> 
-<td>Etunimi</td> 
-<td><input type="text" name="etunimi" value="<%=e.getEtunimi() %>" /></td> 
-</tr> 
-<tr> 
-<td>Puolue</td> 
-<td><input type="text" name="puolue" value="<%=e.getPuolue()%>" /></td> 
-</tr> 
-<tr> 
-<td>Kotipaikkakunta</td> 
-<td><input type="text" name="kotipaikkakunta" value="<%=e.getKotipaikkakunta()%>" /></td> 
-</tr> 
-<tr> 
-<td>Ikä</td> 
-<td><input type="text" name="ika" value="<%=e.getIka()%>"/></td> 
-</tr> 
-<tr> 
-<td>Miksi eduskuntaan?</td> 
-<td><input type="text" name="miksieduskuntaan" value="<%=e.getMiksiEduskuntaan()%>" /></td> 
-</tr> 
-<tr> 
-<td>Mitä asioita haluat edustaa?</td> 
-<td><input type="text" name="mitahaluat" value="<%=e.getMitaAsioitaHaluatEdistaa()%>" /></td> 
-</tr> 
-<tr> 
-<td>Ammatti</td> 
-<td><input type="text" name="ammatti" value="<%=e.getAmmatti()%>" /></td> 
-</tr> 
-<tr> 
+					<form action="TallennaEhdokas" id="EhdokkaanLisays" method="post">
+<table>
+<tbody>
+<tr>
+<td>Sukunimi</td>
+<td><input type="text" name="sukunimi"value="<%=e.getSukunimi() %>" /></td>
+</tr>
+<tr>
+<td>Etunimi</td>
+<td><input type="text" name="etunimi" value="<%=e.getEtunimi() %>" /></td>
+</tr>
+<tr>
+<td>Puolue</td>
+<td><input type="text" name="puolue" value="<%=e.getPuolue()%>" /></td>
+</tr>
+<tr>
+<td>Kotipaikkakunta</td>
+<td><input type="text" name="kotipaikkakunta" value="<%=e.getKotipaikkakunta()%>" /></td>
+</tr>
+<tr>
+<td>Ik�</td>
+<td><input type="text" name="ika" value="<%=e.getIka()%>"/></td>
+</tr>
+<tr>
+<td>Miksi eduskuntaan?</td>
+<td><input type="text" name="miksieduskuntaan" value="<%=e.getMiksiEduskuntaan()%>" /></td>
+</tr>
+<tr>
+<td>Mit� asioita haluat edustaa?</td>
+<td><input type="text" name="mitahaluat" value="<%=e.getMitaAsioitaHaluatEdistaa()%>" /></td>
+</tr>
+<tr>
+<td>Ammatti</td>
+<td><input type="text" name="ammatti" value="<%=e.getAmmatti()%>" /></td>
+</tr>
+<tr>
 <td><input type="submit" id="submitnappi2" formaction="/PoistaEhdokas" value="Poista" />
-<input type="submit" id="submitnappi1" value="Päivitä" /></td> 
-</tr> 
-</tbody> 
-</table> 		
-	</form>
+<input type="submit" id="submitnappi1" value="P�ivit�" /></td>
+</tr>
+</tbody>
+</table>
+		</form>
+
 </body>
 </div>
 </html>

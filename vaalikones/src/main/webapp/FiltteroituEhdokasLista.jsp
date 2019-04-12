@@ -3,6 +3,8 @@
 <%@page import="java.util.*,vaalikone.Yllapito,persist.*"%>
 <!DOCTYPE html>
 <html>
+<link href="style.css" rel="stylesheet" type="text/css">
+<div id="container">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Filtteroitu Ehdokaslista</title>

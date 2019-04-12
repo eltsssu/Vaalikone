@@ -65,13 +65,8 @@ public class TallennaEhdokas extends HttpServlet {
 		} catch (Exception e) {
 			response.getWriter().println("EMF+EM EI Onnistu");
 
-			e.printStackTrace(response.getWriter());
-
-			return;
+	        response.sendRedirect("/EhdokkaanLisays.jsp");
 		}
-
-		response.sendRedirect("/EhdokkaanLisays.jsp");
-
 	}
 
 	/**
