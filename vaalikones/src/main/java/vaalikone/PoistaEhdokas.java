@@ -17,19 +17,21 @@ import persist.Ehdokkaat;
  */
 public class PoistaEhdokas extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public PoistaEhdokas() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public PoistaEhdokas() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String sukunimi = request.getParameter("sukunimi");
 		String etunimi = request.getParameter("etunimi");
@@ -39,20 +41,20 @@ public class PoistaEhdokas extends HttpServlet {
 		String miksi = request.getParameter("miksiEduskuntaan");
 		String mita = request.getParameter("mitaAsioitaHaluatEdistaa");
 		String ammatti = request.getParameter("ammatti");
-		
+
 		EntityManagerFactory emf = null;
 		EntityManager em = null;
-		
+
 		try {
 			emf = Persistence.createEntityManagerFactory("vaalikones");
 			em = emf.createEntityManager();
 			em.getTransaction().begin();
-			
+
 			String id = request.getParameter("muokattavaId");
-			Integer ehdokas_id=Integer.parseInt(id);
-			
+			Integer ehdokas_id = Integer.parseInt(id);
+
 			Ehdokkaat eh = (Ehdokkaat) em.find(Ehdokkaat.class, ehdokas_id);
-			
+
 			eh.setSukunimi(sukunimi);
 			eh.setEtunimi(etunimi);
 			eh.setPuolue(puolue);
@@ -63,23 +65,23 @@ public class PoistaEhdokas extends HttpServlet {
 			eh.setAmmatti(ammatti);
 			em.remove(eh);
 			em.getTransaction().commit();
-			em.close();	
-		
-			
+			em.close();
+
 		} catch (Exception z) {
 			response.getWriter().println("EMF+EM EI Onnistu");
 
 			z.printStackTrace(response.getWriter());
 			return;
 		}
-		int i=0;
 		response.sendRedirect("/YllapitoSivu.jsp");
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
