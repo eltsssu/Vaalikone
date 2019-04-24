@@ -40,8 +40,8 @@ public class KysymysServlet extends HttpServlet {
 			WebTarget wt=asiakas.target(uri);
 			Builder b=wt.request();
 			
-			Kysymykset postTietokone = new Kysymykset();
-			Entity e = Entity.entity(postTietokone, MediaType.APPLICATION_JSON);
+			Kysymykset postKysymys = new Kysymykset();
+			Entity e = Entity.entity(postKysymys, MediaType.APPLICATION_JSON);
 			Kysymykset palautettu = b.post(e, Kysymykset.class);
 			
 			out.println(palautettu);
