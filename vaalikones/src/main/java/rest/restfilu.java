@@ -18,7 +18,6 @@ import javax.ws.rs.core.Response;
 
 import persist.Kysymykset;
 
-
 @Path("/kysymyskone")
 public class restfilu {
 	
