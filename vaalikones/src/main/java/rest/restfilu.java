@@ -18,6 +18,20 @@ import javax.ws.rs.core.Response;
 
 import persist.Kysymykset;
 
+@Path ("/hässäkkää")
 public class restfilu {
+	@POST
+	@Path("/kysymys")
+	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_JSON)
+	public Kysymykset postRiista(Kysymykset k) {
+		EntityManagerFactory emf=Persistence.createEntityManagerFactory("vaalikones");
+		EntityManager em=emf.createEntityManager();
+		em.getTransaction().begin();
+		em.persist(k);
+		em.getTransaction().commit();
+		
+		return k;
+	}
 
 }
