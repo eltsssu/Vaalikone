@@ -20,23 +20,18 @@ import persist.Kysymykset;
 
 @Path("/kysymyspalvelu")
 public class restfilu {
-	
 	@POST
 	@Path("/lisaaKysymys")
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
-	public Kysymykset postKysymys(Kysymykset k) {
+	public Kysymykset postRiista(Kysymykset k) {
 		EntityManagerFactory emf=Persistence.createEntityManagerFactory("vaalikones");
 		EntityManager em=emf.createEntityManager();
 		em.getTransaction().begin();
 		em.persist(k);
 		em.getTransaction().commit();
-		k.setKysymys(k.getKysymys());
+		
 		return k;
 	}
-	
-
-	
-	
 
 }
