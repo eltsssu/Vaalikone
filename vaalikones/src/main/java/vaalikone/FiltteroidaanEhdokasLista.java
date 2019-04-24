@@ -42,23 +42,23 @@ public class FiltteroidaanEhdokasLista extends HttpServlet {
 		EntityManager em = null;
 
 		try {
-			
+
 			emf = Persistence.createEntityManagerFactory("vaalikones");
 			em = emf.createEntityManager();
-			
-			String s = request.getParameter("sukunimi");
-			
-			Query q = em.createQuery("SELECT e FROM Ehdokkaat e where e.sukunimi LIKE '"+s+"%'");
 
-			List<Ehdokkaat> kaikkiEhdokkaat = (List<Ehdokkaat>)(q.getResultList());
-			
-			System.out.println("ehdokkaista: "+s+" "+kaikkiEhdokkaat.size());
+			String s = request.getParameter("sukunimi");
+
+			Query q = em.createQuery("SELECT e FROM Ehdokkaat e where e.sukunimi LIKE '" + s + "%'");
+
+			List<Ehdokkaat> kaikkiEhdokkaat = (List<Ehdokkaat>) (q.getResultList());
+
+			System.out.println("ehdokkaista: " + s + " " + kaikkiEhdokkaat.size());
 //			List<Ehdokkaat> kaikkiEhdokkaat=null;
 			RequestDispatcher rd = request.getRequestDispatcher("FiltteroituEhdokasLista.jsp");
 			request.setAttribute("ehdokasLista", kaikkiEhdokkaat);
 			rd.forward(request, response);
 		}
-			
+
 		catch (Exception e) {
 
 		}

@@ -33,7 +33,7 @@ public class Yllapito extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		out.println("<h2>VAALIKONEEN YLLÄPITO-SIVU!</h2>");
 		out.println("<a href='/EhdokkaanLisays.jsp'> Lisää uusi ehdokas</a><br>");
-		out.println("<a href='/HaeEhdokasLista'> Muokkaa ehdokasta</a>");
+		out.println("<a href='/HaeEhdokasLista'> Muokkaa ehdokasta</a><br>");
 		out.println("<a href='/YllapitoSivu.jsp'> Uusi ylläpitosivu</a>");
 	}
 
