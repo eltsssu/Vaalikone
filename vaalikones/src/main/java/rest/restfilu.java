@@ -18,10 +18,10 @@ import javax.ws.rs.core.Response;
 
 import persist.Kysymykset;
 
-@Path ("/hässäkkää")
+@Path ("/kysymyspalvelu")
 public class restfilu {
 	@POST
-	@Path("/kysymys")
+	@Path("/lisaaKysymys")
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Kysymykset postRiista(Kysymykset k) {

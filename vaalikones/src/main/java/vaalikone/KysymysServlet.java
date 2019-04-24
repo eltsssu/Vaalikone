@@ -32,7 +32,7 @@ public class KysymysServlet extends HttpServlet {
 
 	  response.setContentType("text/html;charset=UTF-8");
 	  PrintWriter out=response.getWriter();
-		String uri = "http://127.0.0.1:8080/rest/hässäkkää/kysymys";
+		String uri = "http://127.0.0.1:8080/rest/kysymyspalvelu/lisaaKysymys";
 		try {
 			
 			Client asiakas=ClientBuilder.newClient();
