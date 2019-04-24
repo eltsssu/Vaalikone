@@ -18,7 +18,7 @@ import javax.ws.rs.core.Response;
 
 import persist.Kysymykset;
 
-@Path ("/kysymyspalvelu")
+@Path("/kysymyspalvelu")
 public class restfilu {
 	@POST
 	@Path("/lisaaKysymys")
