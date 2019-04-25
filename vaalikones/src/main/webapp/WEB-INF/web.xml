@@ -9,8 +9,16 @@
     <servlet-class>vaalikone.Vaalikone</servlet-class>
   </servlet>
   <servlet>
+    <servlet-name>TallennaEhdokas</servlet-name>
+    <servlet-class>vaalikone.TallennaEhdokas</servlet-class>
+  </servlet>
+  <servlet>
     <servlet-name>Yllapito</servlet-name>
     <servlet-class>vaalikone.Yllapito</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>HaeEhdokas</servlet-name>
+    <servlet-class>vaalikone.HaeEhdokas</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>Vaalikone</servlet-name>
@@ -20,10 +28,6 @@
     <servlet-name>Yllapito</servlet-name>
     <url-pattern>/Yllapito</url-pattern>
   </servlet-mapping>
-  <servlet>
-    <servlet-name>TallennaEhdokas</servlet-name>
-    <servlet-class>vaalikone.TallennaEhdokas</servlet-class>
-  </servlet>
   <servlet-mapping>
     <servlet-name>TallennaEhdokas</servlet-name>
     <url-pattern>/TallennaEhdokas</url-pattern>
@@ -32,30 +36,37 @@
     <servlet-name>HaeEhdokasLista</servlet-name>
     <servlet-class>vaalikone.HaeEhdokasLista</servlet-class>
   </servlet>
-  <servlet-mapping>
-    <servlet-name>HaeEhdokasLista</servlet-name>
-    <url-pattern>/HaeEhdokasLista</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <servlet-name>HaeEhdokas</servlet-name>
-    <servlet-class>vaalikone.HaeEhdokas</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>HaeEhdokas</servlet-name>
-    <url-pattern>/HaeEhdokas</url-pattern>
-  </servlet-mapping>
   <servlet>
     <servlet-name>MuokkaaEhdokas</servlet-name>
     <servlet-class>vaalikone.MuokkaaEhdokas</servlet-class>
   </servlet>
-  <servlet-mapping>
-    <servlet-name>MuokkaaEhdokas</servlet-name>
-    <url-pattern>/MuokkaaEhdokas</url-pattern>
-  </servlet-mapping>
   <servlet>
     <servlet-name>PoistaEhdokas</servlet-name>
     <servlet-class>vaalikone.PoistaEhdokas</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>jersey-servlet</servlet-name>
+    <servlet-class>
+		org.glassfish.jersey.servlet.ServletContainer
+     </servlet-class>
+    <init-param>
+      <param-name>jersey.config.server.provider.packages</param-name>
+      <param-value>rest</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>HaeEhdokasLista</servlet-name>
+    <url-pattern>/HaeEhdokasLista</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>HaeEhdokas</servlet-name>
+    <url-pattern>/HaeEhdokas</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>MuokkaaEhdokas</servlet-name>
+    <url-pattern>/MuokkaaEhdokas</url-pattern>
+  </servlet-mapping>
   <servlet-mapping>
     <servlet-name>PoistaEhdokas</servlet-name>
     <url-pattern>/PoistaEhdokas</url-pattern>
@@ -68,17 +79,6 @@
     <servlet-name>FiltteroidaanEhdokasLista</servlet-name>
     <url-pattern>/FiltteroidaanEhdokasLista</url-pattern>
   </servlet-mapping>
-  <servlet>
-    <servlet-name>jersey-servlet</servlet-name>
-    <servlet-class>
-		org.glassfish.jersey.servlet.ServletContainer
-     </servlet-class>
-    <init-param>
-      <param-name>jersey.config.server.provider.packages</param-name>
-      <param-value>rest</param-value>
-    </init-param>
-    <load-on-startup>1</load-on-startup>
-  </servlet>
   <servlet-mapping>
     <servlet-name>jersey-servlet</servlet-name>
     <url-pattern>/rest/*</url-pattern>
