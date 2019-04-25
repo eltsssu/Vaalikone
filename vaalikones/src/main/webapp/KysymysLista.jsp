@@ -11,7 +11,6 @@
   <%@page import="javax.ws.rs.core.MediaType"%>
   <%@page import="javax.ws.rs.client.Client"%>
   
-  <%@page import="" %>
 
 <!DOCTYPE html>
 <html>
@@ -23,28 +22,33 @@
 
 <%
 
+response.setContentType("text/html;charset=UTF-8");
+
 String uri = "http://127.0.0.1:8080/rest/kysymyspalvelu/haeKysymykset";
 Client asiakas = ClientBuilder.newClient();
 
-
 WebTarget wt = asiakas.target(uri);
 Builder b = wt.request();
-GenericType<ArrayList<Kysymykset>> x = new GenericType<ArrayList<Kysymykset>>() {
-};
+GenericType<List<Kysymykset>> x = new GenericType<List<Kysymykset>>() {};
 
-ArrayList<Kysymykset> palautettu = b.get(x);
+List<Kysymykset> palautettu = b.get(x);
+
+//List<Kysymykset> kaikkiKysymykset = (List<Kysymykset>) (request.getAttribute("kysymysLista"));
+
+ for (int i = 0; i < palautettu.size(); i++) {
+
+	Kysymykset k = palautettu.get(i);
+
+	out.print(k.getKysymys() + " ");
+
+	out.print("<a href='HaeKysymys?id=" + k.getKysymysId() + "'>Hae</a><br>");
+
+}
 
 
-out.print("<a href='HaeEhdokas?id=" + k.getKysymysId() + "'>Hae</a><br>");
-out.println(palautettu);
-
+ 
+ out.println("Tadaa!");
 %>
-
-
-
-
-
-
 
 </body>
 </html>

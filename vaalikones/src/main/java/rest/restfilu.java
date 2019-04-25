@@ -42,12 +42,13 @@ public class restfilu {
 	@Path("/haeKysymykset")
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
-	public ArrayList<Kysymykset> haeKaikkiKysymykset() {
+	public List<Kysymykset> haeKaikkiKysymykset() {
 		EntityManagerFactory emf=Persistence.createEntityManagerFactory("vaalikones");
 		EntityManager em=emf.createEntityManager();
-		em.getTransaction().begin();
+	//	em.getTransaction().begin();
 		Query q = em.createQuery("SELECT k FROM Kysymykset k");
-		List<Kysymykset> kaikkiKysymykset = (List<Kysymykset>) (q.getResultList());	
-		return (ArrayList<Kysymykset>) kaikkiKysymykset;
+		List<Kysymykset> kysymysLista = (List<Kysymykset>) (q.getResultList());	
+//		return (ArrayList<Kysymykset>) kysymysLista;
+		return kysymysLista;
 	}
 }
