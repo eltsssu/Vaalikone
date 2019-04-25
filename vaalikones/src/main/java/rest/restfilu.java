@@ -23,31 +23,30 @@ import persist.Kysymykset;
 
 @Path("/kysymyspalvelu")
 public class restfilu {
-	
+
 	@POST
 	@Path("/lisaaKysymys")
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Kysymykset postKysymys(Kysymykset k) {
-		EntityManagerFactory emf=Persistence.createEntityManagerFactory("vaalikones");
-		EntityManager em=emf.createEntityManager();
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("vaalikones");
+		EntityManager em = emf.createEntityManager();
 		em.getTransaction().begin();
 		em.persist(k);
 		em.getTransaction().commit();
 		k.setKysymys(k.getKysymys());
 		return k;
 	}
-	
+
 	@GET
 	@Path("/haeKysymykset")
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
 	public List<Kysymykset> haeKaikkiKysymykset() {
-		EntityManagerFactory emf=Persistence.createEntityManagerFactory("vaalikones");
-		EntityManager em=emf.createEntityManager();
-	//	em.getTransaction().begin();
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("vaalikones");
+		EntityManager em = emf.createEntityManager();
 		Query q = em.createQuery("SELECT k FROM Kysymykset k");
-		List<Kysymykset> kysymysLista = (List<Kysymykset>) (q.getResultList());	
+		List<Kysymykset> kysymysLista = (List<Kysymykset>) (q.getResultList());
 //		return (ArrayList<Kysymykset>) kysymysLista;
 		return kysymysLista;
 	}
