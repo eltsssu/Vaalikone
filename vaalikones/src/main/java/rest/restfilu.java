@@ -9,10 +9,12 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -21,6 +23,7 @@ import persist.Kysymykset;
 
 @Path("/kysymyspalvelu")
 public class restfilu {
+	
 	@POST
 	@Path("/lisaaKysymys")
 	@Produces(MediaType.APPLICATION_JSON)
@@ -34,5 +37,17 @@ public class restfilu {
 		k.setKysymys(k.getKysymys());
 		return k;
 	}
-
+	
+	@GET
+	@Path("/haeKysymykset")
+	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_JSON)
+	public ArrayList<Kysymykset> haeKaikkiKysymykset() {
+		EntityManagerFactory emf=Persistence.createEntityManagerFactory("vaalikones");
+		EntityManager em=emf.createEntityManager();
+		em.getTransaction().begin();
+		Query q = em.createQuery("SELECT k FROM Kysymykset k");
+		List<Kysymykset> kaikkiKysymykset = (List<Kysymykset>) (q.getResultList());	
+		return (ArrayList<Kysymykset>) kaikkiKysymykset;
+	}
 }
