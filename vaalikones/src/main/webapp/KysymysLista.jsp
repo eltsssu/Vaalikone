@@ -16,35 +16,37 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Kysymysten muokkaus</title>
+<link href="style.css" rel="stylesheet" type="text/css">
 </head>
-<h1>Kysymyslista</h1>
-<body>
+<div id="container">
+	<h1>Kysymyslista</h1>
+	<body>
 
-	<%
-		response.setContentType("text/html;charset=UTF-8");
+		<%
+			response.setContentType("text/html;charset=UTF-8");
 
-		String uri = "http://127.0.0.1:8080/rest/kysymyspalvelu/haeKysymykset";
-		Client asiakas = ClientBuilder.newClient();
+			String uri = "http://127.0.0.1:8080/rest/kysymyspalvelu/haeKysymykset";
+			Client asiakas = ClientBuilder.newClient();
 
-		WebTarget wt = asiakas.target(uri);
-		Builder b = wt.request();
-		GenericType<List<Kysymykset>> x = new GenericType<List<Kysymykset>>() {
-		};
+			WebTarget wt = asiakas.target(uri);
+			Builder b = wt.request();
+			GenericType<List<Kysymykset>> x = new GenericType<List<Kysymykset>>() {
+			};
 
-		List<Kysymykset> palautettu = b.get(x);
+			List<Kysymykset> palautettu = b.get(x);
 
-		for (int i = 0; i < palautettu.size(); i++) {
+			for (int i = 0; i < palautettu.size(); i++) {
 
-			Kysymykset k = palautettu.get(i);
+				Kysymykset k = palautettu.get(i);
+				
+				out.print(k.getKysymysId() + " ");
+				out.print(k.getKysymys() + " ");		
 
-			out.print(k.getKysymys() + " ");
+				out.print("<a href='MuokkaaKysymysta.jsp?id=" + k.getKysymysId() + "'>Muokkaa</a><br>");
 
-			out.print("<a href='HaeKysymys?id=" + k.getKysymysId() + "'>Muokkaa</a><br>");
-
-		}
-
-		//out.println("Tadaa!");
-	%>
-
+			}
+		%>
+	
+</div>
 </body>
 </html>

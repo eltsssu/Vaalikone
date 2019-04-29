@@ -19,6 +19,14 @@
 	<a href="/HaeEhdokasLista">Muokkaa ehdokasta</a>
 
 	<br>
+	
+	<a href="/KysymyksenLisays.html">Lis‰‰ uusi kysymys</a>
+
+	<br>
+	
+	<a href="/KysymysLista.jsp">Muokkaa kysymyst‰</a>
+
+	<br>
 
 
 </body>
