@@ -18,7 +18,6 @@
 <meta charset="ISO-8859-1">
 <title>Kysymyksen muokkaus</title>
 <link href="style.css" rel="stylesheet" type="text/css">
-
 </head>
 <div id="container">
 	<h1>Kysymyksen muokkaus</h1>
@@ -37,8 +36,6 @@
 			Builder b = wt.request();
 
 			Kysymykset k = b.get(Kysymykset.class);
-
-			//		Kysymykset k = "./rest/kysymyspalvelu/haeYksiKysymys/id";
 		%>
 
 		<table>

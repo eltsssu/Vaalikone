@@ -49,7 +49,6 @@ public class restfilu {
 		EntityManager em = emf.createEntityManager();
 		Query q = em.createQuery("SELECT k FROM Kysymykset k");
 		List<Kysymykset> kysymysLista = (List<Kysymykset>) (q.getResultList());
-//		return (ArrayList<Kysymykset>) kysymysLista;
 		em.close();
 		return kysymysLista;
 	}
@@ -78,11 +77,7 @@ public class restfilu {
 		if (kys!=null) {
 			em.merge(k);
 		}
-		em.getTransaction().commit();
-		
-		//kys.setKysymys(k.getKysymys());
-		//em.merge(kys);
-		
+		em.getTransaction().commit();		
 		em.close();
 		return kys;
 	}
@@ -97,15 +92,10 @@ public class restfilu {
 		em.getTransaction().begin();
 		int id = k.getKysymysId();
 		k = em.find(Kysymykset.class, id);
-//		Kysymykset kys = (Kysymykset) em.find(Kysymykset.class, k.getKysymysId());
-//		if (kys!=null) {
+		if (k!=null) {
 			em.remove(k);
-//		}
+		}
 		em.getTransaction().commit();
-		
-		//kys.setKysymys(k.getKysymys());
-		//em.merge(kys);
-		
 		em.close();
 		return k;
 	}
