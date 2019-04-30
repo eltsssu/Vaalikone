@@ -49,7 +49,10 @@
 						<tr>
 							<td><label>Kysymys </label></td>
 							<td><input type='text' name='kysymys'
-								value="<%=k.getKysymys()%>" /></td>
+								value="<%=k.getKysymys()%>" />
+							<input type='text' name='kysymysid'
+								value="<%=k.getKysymysId()%>" />
+								</td>
 						</tr>
 					</form>
 				</td>
@@ -66,10 +69,59 @@
 
 <script>
 	function muokkaakysymysta() {
+		
+		var lomake = document.getElementById("lomake2");
 
+		var kyssari = new Object();
+
+		kyssari.kysymysId = lomake.kysymysid.value;
+		kyssari.kysymys = lomake.kysymys.value;
+
+		var jsonKysymys = JSON.stringify(kyssari);
+
+		var xhttp = new XMLHttpRequest();
+
+		xhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+				var palautettu = JSON.parse(this.responseText);
+			}
+		};
+
+		xhttp.open("POST", "./rest/kysymyspalvelu/muokkaaKysymys", true);
+		//		xhttp.setRequestHeader("Content-type","text/plain");
+		xhttp.setRequestHeader("Content-type", "application/json");
+		//		xmlhttp.setRequestHeader("Data-type","json");
+		xhttp.send(jsonKysymys);
+		
+		window.location = "//localhost:8080/KysymysLista.jsp";
 	}
 
 	function poistakysymys() {
+		
+		var lomake = document.getElementById("lomake2");
+
+		var kyssari = new Object();
+
+		kyssari.kysymysId = lomake.kysymysid.value;
+		kyssari.kysymys = lomake.kysymys.value;
+
+		var jsonKysymys = JSON.stringify(kyssari);
+
+		var xhttp = new XMLHttpRequest();
+
+		xhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+				var palautettu = JSON.parse(this.responseText);
+			}
+		};
+
+		xhttp.open("POST", "./rest/kysymyspalvelu/poistaKysymys", true);
+		//		xhttp.setRequestHeader("Content-type","text/plain");
+		xhttp.setRequestHeader("Content-type", "application/json");
+		//		xmlhttp.setRequestHeader("Data-type","json");
+		xhttp.send(jsonKysymys);
+		
+		window.location = "//localhost:8080/KysymysLista.jsp";
 
 	}
 </script>

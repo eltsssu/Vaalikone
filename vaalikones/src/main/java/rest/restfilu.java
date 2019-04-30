@@ -65,4 +65,50 @@ public class restfilu {
 		em.close();
 		return kys;					
 	}
+	
+	@POST
+	@Path("/muokkaaKysymys")
+	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_JSON)
+	public Kysymykset postMuokattuKysymys(Kysymykset k) {
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("vaalikones");
+		EntityManager em = emf.createEntityManager();
+		em.getTransaction().begin();
+		Kysymykset kys = (Kysymykset) em.find(Kysymykset.class, k.getKysymysId());
+		if (kys!=null) {
+			em.merge(k);
+		}
+		em.getTransaction().commit();
+		
+		//kys.setKysymys(k.getKysymys());
+		//em.merge(kys);
+		
+		em.close();
+		return kys;
+	}
+	
+	@POST
+	@Path("/poistaKysymys")
+	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_JSON)
+	public Kysymykset postPoistettuKysymys(Kysymykset k) {
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("vaalikones");
+		EntityManager em = emf.createEntityManager();
+		em.getTransaction().begin();
+		int id = k.getKysymysId();
+		k = em.find(Kysymykset.class, id);
+//		Kysymykset kys = (Kysymykset) em.find(Kysymykset.class, k.getKysymysId());
+//		if (kys!=null) {
+			em.remove(k);
+//		}
+		em.getTransaction().commit();
+		
+		//kys.setKysymys(k.getKysymys());
+		//em.merge(kys);
+		
+		em.close();
+		return k;
+	}
+	
+	
 }
