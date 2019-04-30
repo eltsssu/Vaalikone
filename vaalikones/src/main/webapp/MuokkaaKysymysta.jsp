@@ -21,55 +21,55 @@
 
 </head>
 <div id="container">
-<h1>Kysymyksen muokkaus</h1>
+	<h1>Kysymyksen muokkaus</h1>
 
-<body>
+	<body>
 
-	<%
-		response.setContentType("text/html;charset=UTF-8");
+		<%
+			response.setContentType("text/html;charset=UTF-8");
 
-		String id = request.getParameter("id");
+			String id = request.getParameter("id");
 
-		String uri = "http://127.0.0.1:8080/rest/kysymyspalvelu/haeYksiKysymys/" + id;
-		Client asiakas = ClientBuilder.newClient();
+			String uri = "http://127.0.0.1:8080/rest/kysymyspalvelu/haeYksiKysymys/" + id;
+			Client asiakas = ClientBuilder.newClient();
 
-		WebTarget wt = asiakas.target(uri);
-		Builder b = wt.request();
+			WebTarget wt = asiakas.target(uri);
+			Builder b = wt.request();
 
-		Kysymykset k = b.get(Kysymykset.class);
+			Kysymykset k = b.get(Kysymykset.class);
 
-		//		Kysymykset k = "./rest/kysymyspalvelu/haeYksiKysymys/id";
-	%>
+			//		Kysymykset k = "./rest/kysymyspalvelu/haeYksiKysymys/id";
+		%>
 
-	<table>
-		<tbody>
-			<tr>
-				<td>
-					<form id='lomake2' onsubmit="return false;">
-						<tr>
-							<td><label>Kysymys </label></td>
-							<td><input type='text' name='kysymys'
-								value="<%=k.getKysymys()%>" />
-							<input type='text' name='kysymysid'
-								value="<%=k.getKysymysId()%>" />
-								</td>
-						</tr>
-					</form>
-				</td>
-			</tr>
+		<table>
+			<tbody>
+				<tr>
+					<td>
+						<form id='lomake2' onsubmit="return false;">
+							<tr>
+								<td><label>Kysymys </label></td>
+								<td><input type='text' name='kysymys'
+									value="<%=k.getKysymys()%>" /> <input type='hidden'
+									name='kysymysid' value="<%=k.getKysymysId()%>" /></td>
+							</tr>
+						</form>
+					</td>
+				</tr>
 
-			<tr>
-				<td><button onclick="muokkaakysymysta();">Muokkaa</button>
-					<button onclick="poistakysymys();">Poista</button></td>
-			</tr>
-		</tbody>
-	</table>
-	</div>
+				<tr>
+					<td>
+						<button onclick="poistakysymys();">Poista</button>
+						<button onclick="muokkaakysymysta();">Muokkaa</button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+</div>
 </body>
 
 <script>
 	function muokkaakysymysta() {
-		
+
 		var lomake = document.getElementById("lomake2");
 
 		var kyssari = new Object();
@@ -92,12 +92,12 @@
 		xhttp.setRequestHeader("Content-type", "application/json");
 		//		xmlhttp.setRequestHeader("Data-type","json");
 		xhttp.send(jsonKysymys);
-		
+
 		window.location = "//localhost:8080/KysymysLista.jsp";
 	}
 
 	function poistakysymys() {
-		
+
 		var lomake = document.getElementById("lomake2");
 
 		var kyssari = new Object();
@@ -120,7 +120,7 @@
 		xhttp.setRequestHeader("Content-type", "application/json");
 		//		xmlhttp.setRequestHeader("Data-type","json");
 		xhttp.send(jsonKysymys);
-		
+
 		window.location = "//localhost:8080/KysymysLista.jsp";
 
 	}

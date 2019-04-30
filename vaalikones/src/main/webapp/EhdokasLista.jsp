@@ -17,6 +17,7 @@
 			<input type='text' name='sukunimi' value=''> <input
 				type="submit" id="submitnappi3" value="Hae" />
 		</form>
+		<br>
 
 		<%
 			List<Ehdokkaat> kaikkiEhdokkaat = (List<Ehdokkaat>) (request.getAttribute("ehdokasLista"));
@@ -28,10 +29,13 @@
 				out.print(e.getEhdokasId() + " ");
 				out.print(e.getSukunimi() + " ");
 				out.print(e.getEtunimi() + " ");
-				out.print("<a href='HaeEhdokas?id=" + e.getEhdokasId() + "'>Hae</a><br>");
+				out.print("<a href='HaeEhdokas?id=" + e.getEhdokasId() + "'>Muokkaa</a><br>");
 
 			}
 		%>
+
+		<br>
+		<a href="/YllapitoSivu.jsp">Ylläpitosivu</a>
 
 
 	</body>

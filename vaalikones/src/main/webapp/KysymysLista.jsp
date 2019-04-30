@@ -38,15 +38,17 @@
 			for (int i = 0; i < palautettu.size(); i++) {
 
 				Kysymykset k = palautettu.get(i);
-				
+
 				out.print(k.getKysymysId() + " ");
-				out.print(k.getKysymys() + " ");		
+				out.print(k.getKysymys() + " ");
 
 				out.print("<a href='MuokkaaKysymysta.jsp?id=" + k.getKysymysId() + "'>Muokkaa</a><br>");
 
 			}
 		%>
-	
+
+		<br>
+		<a href="/YllapitoSivu.jsp">Ylläpitosivu</a>
 </div>
 </body>
 </html>

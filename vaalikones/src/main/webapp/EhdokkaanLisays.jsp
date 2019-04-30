@@ -59,6 +59,9 @@
 						<tr>
 							<td><input type="submit" id="submitnappi1" value="Lisää" /></td>
 						</tr>
+						<tr>
+							<td><br> <a href="/YllapitoSivu.jsp">Ylläpitosivu</a></td>
+						</tr>
 					</tbody>
 				</table>
 			</form>

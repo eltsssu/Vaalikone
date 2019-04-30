@@ -6,28 +6,30 @@
 <link href="style.css" rel="stylesheet" type="text/css">
 </head>
 <div id="container">
-<h1>Kysymyksen lis‰ys</h1>
-<body>
-	<table>
-		<tbody>
-			<div id='yksikysymys'></div>
-			<tr>
-				<td>
-					<form id='lomake' onsubmit="return false;">
-						<tr>
-							<td><label>Kysymys </label></td>
-							<td><input type='text' name='kysymys' value=''></td>
-						</tr>
-					</form>
-				</td>
-			</tr>
-
-			<tr>
-				<td><button onclick="lahetayksikysymys();">Lis‰‰</button></td>
-			</tr>
-		</tbody>
-	</table>
-	</div>
+	<h1>Kysymyksen lis‰ys</h1>
+	<body>
+		<table>
+			<tbody>
+				<!-- 			<div id='yksikysymys'></div> -->
+				<tr>
+					<td>
+						<form id='lomake' onsubmit="return false;">
+							<tr>
+								<td><label>Kysymys </label></td>
+								<td><input type='text' name='kysymys' value=''></td>
+							</tr>
+						</form>
+					</td>
+				</tr>
+				<tr>
+					<td><button onclick="lahetayksikysymys();">Lis‰‰</button></td>
+				</tr>
+				<tr>
+					<td><br> <a href="/YllapitoSivu.jsp">Yll‰pitosivu</a></td>
+				</tr>
+			</tbody>
+		</table>
+</div>
 </body>
 
 <script>
@@ -46,8 +48,8 @@
 		xhttp.onreadystatechange = function() {
 			if (this.readyState == 4 && this.status == 200) {
 				var palautettu = JSON.parse(this.responseText);
-				document.getElementById("yksikysymys").innerHTML = "Lis‰tty kysymys: "
-						+ palautettu.kysymys;
+				// 				document.getElementById("yksikysymys").innerHTML = "Lis‰tty kysymys: "
+				// 						+ palautettu.kysymys;
 			}
 		};
 
@@ -56,6 +58,8 @@
 		xhttp.setRequestHeader("Content-type", "application/json");
 		//		xmlhttp.setRequestHeader("Data-type","json");
 		xhttp.send(jsonKysymys);
+
+		window.location = "//localhost:8080/KysymyksenLisays.html";
 
 	}
 
