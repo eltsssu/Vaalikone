@@ -99,6 +99,20 @@ public class restfilu {
 		em.close();
 		return k;
 	}
+	@POST
+	@Path("/lisaaEhdokas")
+	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_JSON)
+	public Ehdokkaat postEhdokas(Ehdokkaat k) {
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("vaalikones");
+		EntityManager em = emf.createEntityManager();
+		em.getTransaction().begin();
+		em.persist(k);
+		em.getTransaction().commit();
+		k.setEhdokasId(k.getEhdokasId());
+		em.close();
+		return k;
+	}
 	
 	
 }

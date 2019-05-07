@@ -9,26 +9,30 @@
 <link href="style.css" rel="stylesheet" type="text/css">
 </head>
 <div id="container">
-<h1>Yll‰pito</h1>
-<body>
+	<h1>Yll‰pito</h1>
+	<body>
 
-	<a href="/EhdokkaanLisays.jsp">Lis‰‰ uusi ehdokas</a>
+		<a href="/EhdokkaanLisays.jsp">Lis‰‰ uusi ehdokas</a>
 
-	<br>
+		<br>
 
-	<a href="/HaeEhdokasLista">Muokkaa ehdokasta</a>
+		<a href="/HaeEhdokasLista">Muokkaa ehdokasta</a>
 
-	<br>
-	
-	<a href="/KysymyksenLisays.html">Lis‰‰ uusi kysymys</a>
+		<br>
 
-	<br>
-	
-	<a href="/KysymysLista.jsp">Muokkaa kysymyst‰</a>
+		<a href="/KysymyksenLisays.html">Lis‰‰ uusi kysymys</a>
 
-	<br>
+		<br>
+
+		<a href="/KysymysLista.jsp">Muokkaa kysymyst‰</a>
+
+		<br>
+
+		<a href="/EhdokkaanLisays.html">Ehdokkaan Lis‰ys Vol. 2</a>
+
+		<br>
 
 
-</body>
+	</body>
 </div>
 </html>
